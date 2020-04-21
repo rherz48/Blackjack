@@ -5,10 +5,13 @@
  */
 package blackjack;
 
+
 /**
  *
  * @author ryanh
  */
-public class DeckOfCards {
-    // add what a deck of cards should do
+public class Player {
+    
+    double Money = 1000;
+    
 }
