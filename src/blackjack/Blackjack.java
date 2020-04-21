@@ -18,6 +18,7 @@ public class Blackjack {
         // TODO code application logic here
         
         System.out.println("Blackjack");
+        System.out.print("test");
     }
     
 }
