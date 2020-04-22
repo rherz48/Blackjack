@@ -27,7 +27,7 @@ public class Blackjack {
 
 
         
-        System.out.println(ANSI_BLUE + "Blackjack" + ANSI_RESET + "\n"); // prints Blackjack blue and underlined
+        System.out.println(ANSI_BLUE + "Blackjack" + ANSI_RESET + "\n"); // prints Blackjack blue 
 
         //might not need/use
 //        double bet; 
@@ -92,7 +92,16 @@ public class Blackjack {
         //Player a = new Player(); // new player 
         
         
+        
+        
+        
+        
+        
         // CREATE A LOOP TO HOLD EVERYTHING UNTIL EXITED ////
+        
+        
+        
+        
         
         /**
          * Creates the bet amount for the player,
@@ -117,8 +126,10 @@ public class Blackjack {
         // calculates and displays amount if won
         double Prize = a.amountToWin(0);
         // rounded to nearest whole number
-        System.out.println(Math.round(Prize));
+        System.out.println("Prize to win: "+(Math.round(Prize)) + "\n");
 
+        
+        
         }
 
     }
