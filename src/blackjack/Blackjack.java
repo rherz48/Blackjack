@@ -29,8 +29,9 @@ public class Blackjack {
         
         System.out.println(ANSI_BLUE + "Blackjack" + ANSI_RESET + "\n"); // prints Blackjack blue and underlined
 
-        double bet;
-        double betAmount;
+        //might not need/use
+//        double bet; 
+//        double betAmount;
         
         while (true) {
             
@@ -86,6 +87,15 @@ public class Blackjack {
             }
         // this is where the game should start
         System.out.println("");
+        
+        Player a = new Player(); // new player 
+        
+        //creates the bet amount for the player 
+        System.out.print("Bet Amount: ");
+        double b = a.betAmount(0);
+        System.out.println(b);
+        
+        
 
         }
 

@@ -5,6 +5,8 @@
  */
 package blackjack;
 
+import java.util.Scanner;
+
 
 /**
  *
@@ -14,4 +16,14 @@ public class Player {
     
     double Money = 1000;
     
+    Scanner input = new Scanner(System.in);
+    
+    public double betAmount(double Bet) {
+        
+        double moneyAmount = input.nextDouble();
+        
+        //this.betAmount(moneyAmount);
+        return Money-=moneyAmount;
+        
+    }
 }
