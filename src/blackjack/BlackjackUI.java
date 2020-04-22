@@ -16,6 +16,7 @@ public class BlackjackUI extends javax.swing.JFrame {
      */
     public BlackjackUI() {
         initComponents();
+        
     }
 
     /**
@@ -45,6 +46,7 @@ public class BlackjackUI extends javax.swing.JFrame {
         setTitle("Blackjack");
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/money_bag_48px.png"))); // NOI18N
 
