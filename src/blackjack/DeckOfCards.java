@@ -11,6 +11,9 @@ package blackjack;
  */
 public class DeckOfCards {
     // add what a deck of cards should do
-    
+    public DeckOfCards() {
+        System.out.println("test");
+
+    }
     
 }
