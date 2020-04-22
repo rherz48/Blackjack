@@ -32,6 +32,7 @@ public class Blackjack {
         //might not need/use
 //        double bet; 
 //        double betAmount;
+        Player a = new Player();
         
         while (true) {
             
@@ -67,7 +68,7 @@ public class Blackjack {
                         
                     }else if (userInput == 2) {
                         System.out.println("Thanks for playing!");
-                        System.exit(0); // jvm terminal is 1, program is 0
+                        System.exit(0); // jvm terminal is 1, program is 0?
                         //break;
                     
                     }
@@ -79,7 +80,7 @@ public class Blackjack {
 //                }catch (Exception e) {
 //                    System.out.println("An error has occurred..");
 
-                }catch (InputMismatchException a) { // dont need it now, but might need it later
+                }catch (InputMismatchException ime) { // dont need it now, but might need it later
                     System.out.println("Invalid input.");
                     
             }
@@ -88,14 +89,35 @@ public class Blackjack {
         // this is where the game should start
         System.out.println("");
         
-        Player a = new Player(); // new player 
-        
-        //creates the bet amount for the player 
-        System.out.print("Bet Amount: ");
-        double b = a.betAmount(0);
-        System.out.println(b);
+        //Player a = new Player(); // new player 
         
         
+        // CREATE A LOOP TO HOLD EVERYTHING UNTIL EXITED ////
+        
+        /**
+         * Creates the bet amount for the player,
+         * and the total amount that can be won
+         */ 
+        
+        System.out.println("Current Balance: " + a.Money);
+        System.out.print("Your Bet: ");
+        double b = a.playerBetAmount(0);
+        
+        //dealer bet amount
+        a.dealerBetAmount();
+        System.out.println("Dealer Bet: " + a.dealerBetAmount());
+        
+        //Prints out the new balance
+        System.out.print("New balance: " + b);
+        
+        // seperate lines
+        System.out.println("\n");
+        //
+        
+        // calculates and displays amount if won
+        double Prize = a.amountToWin(0);
+        // rounded to nearest whole number
+        System.out.println(Math.round(Prize));
 
         }
 
