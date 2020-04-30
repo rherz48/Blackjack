@@ -72,6 +72,7 @@ public class Deck {
 //            System.out.println(str);
 //        }
 
+        //
         ArrayList<Card> tmpDeck = new ArrayList<Card>();
 
         
@@ -84,6 +85,7 @@ public class Deck {
         
         //cards.remove(0);
         
+        //
 //        randomCardIndex = cards[0];
 //        
 //        for(Card str : tmpDeck) {
