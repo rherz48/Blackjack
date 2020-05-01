@@ -51,12 +51,21 @@ public class Blackjack {
         
         
         System.out.println(playingDeck.newDeck());
-        playingDeck.removeACard();
-        System.out.println(playingDeck.newDeck());
+        playingDeck.removeACard(); // remove a card from the deck
+        System.out.println(playingDeck.newDeck()); //prints the deck after removing a card
         
         playingDeck.playerCards();
         
         System.out.println(playingDeck.tmpDeck);
+        
+        playingDeck.dealerCards();
+        //playingDeck.removeACard();
+        
+        
+        System.out.println(playingDeck.tmpDealerDeck); //prints the dealers temp deck: tmpDealerDeck
+        
+        playingDeck.getCardsCounts();
+        
         //System.out.println(playingDeck)
         
         
