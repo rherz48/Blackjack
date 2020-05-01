@@ -25,6 +25,9 @@ public class Deck {
 
     ArrayList<Card> tmpDeck = new ArrayList<Card>(); /////// this was added from below
     
+    ArrayList<Card> tmpPlayerDeck = new ArrayList<Card>();
+    ArrayList<Card> tmpDealerDeck = new ArrayList<Card>();
+    
     ///
     String playerCards[];
     String dealerCards[];
@@ -143,8 +146,26 @@ public class Deck {
         //playerCards = ArrayUtils.add( playerCards, 0);
         //System.arraycopy(cards, cards.get(0), playerCards, 0);
         tmpDeck.add(this.cards.get(0));
+        tmpPlayerDeck.add(this.cards.get(0));
+        cards.remove(0);
         //cards.get(0);
 
+    }
+    public void dealerCards() {
+        tmpDeck.add(this.cards.get(0));
+        tmpDealerDeck.add(this.cards.get(0));
+        cards.remove(0);
+    }
+    public void getCardsCounts() {
+        
+        //Prints all of the decks sizes
+        System.out.println("tmpDeck: " + tmpDeck.size());
+        System.out.println("tmpPlayerDeck: " + tmpPlayerDeck.size());
+        System.out.println("tmpDealerDeck: " + tmpDealerDeck.size());
+        
+        //How many cards are left in the deck
+        System.out.println("tmpDealerDeck: " + cards.size());
+        
     }
 
     public String toString() {
