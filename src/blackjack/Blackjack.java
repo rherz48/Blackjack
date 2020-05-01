@@ -28,7 +28,11 @@ public class Blackjack {
         Player playerInfo = new Player();
         
         
-       
+        //Arrays to hold the cards being used
+        //String allCards[];
+        //String playerCards[];
+        //String dealerCards[];
+       ///
         
         //playingDeck.removeCard();
         
@@ -36,14 +40,23 @@ public class Blackjack {
         playingDeck.shuffleDeck();
         
         
-        playingDeck.removeCard(); //fix : this runs first because in the remove card it is currently set to print everything in it....
+        //removeCard is not set to work: use removeACard instead
+        //playingDeck.removeCard(); //fix : this runs first because in the remove card it is currently set to print everything in it....
         
         
         
         System.out.println(playingDeck);
         
+        //playingDeck.removeCard(); //currently prints the deck out ..
         
         
+        System.out.println(playingDeck.newDeck());
+        playingDeck.removeACard();
+        System.out.println(playingDeck.newDeck());
+        
+        playingDeck.playerCards();
+        
+        System.out.println(playingDeck.tmpDeck);
         //System.out.println(playingDeck)
         
         

@@ -23,6 +23,14 @@ public class Deck {
 
     private ArrayList<Card> cards;
 
+    ArrayList<Card> tmpDeck = new ArrayList<Card>(); /////// this was added from below
+    
+    ///
+    String playerCards[];
+    String dealerCards[];
+    ///
+    
+    
     private String[] cardsBeingUsed; // do something
     private String[] discardPile; // do something
 
@@ -73,7 +81,9 @@ public class Deck {
 //        }
 
         //
-        ArrayList<Card> tmpDeck = new ArrayList<Card>();
+        
+        //here
+        //ArrayList<Card> tmpDeck = new ArrayList<Card>();
 
         
         List<String> strings = tmpDeck.stream()
@@ -113,8 +123,27 @@ public class Deck {
         //cards.remove(0); /// Removes cards 0 from the arraylist
 
     }
+    //change cards to list?
+     public List<String> newDeck() {
+         List<String> strings = cards.stream()
+        //List<String> strings = cards.stream()
+        .map(object -> Objects.toString(object, null))
+        .collect(Collectors.toList());
+        
+        //System.out.println(cards); //
+         return strings;
+         
+     }
+     public void removeACard() {
+         cards.remove(0);
+     }
 
     public void playerCards() {
+        //playerCards = append(playerCards, "4");
+        //playerCards = ArrayUtils.add( playerCards, 0);
+        //System.arraycopy(cards, cards.get(0), playerCards, 0);
+        tmpDeck.add(this.cards.get(0));
+        //cards.get(0);
 
     }
 
