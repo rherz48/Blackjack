@@ -64,7 +64,35 @@ public class Blackjack {
         
         System.out.println(playingDeck.tmpDealerDeck); //prints the dealers temp deck: tmpDealerDeck
         
-        playingDeck.getCardsCounts();
+        playingDeck.getCardCounts();
+        
+        
+        System.out.println("-----");
+        playingDeck.moveCardsBackToDeck();
+        
+        //playingDeck.clearAllDecks(); //Clears all the cards in the decks
+        
+        
+        //working on checking each element in the array and cardcounts from before
+        playingDeck.playerCards(); // add
+        
+        
+        playingDeck.getCardCounts();
+        
+        //working on checking each element in the array
+        playingDeck.checkVal();
+        System.out.println(playingDeck.tmpDeck);
+        System.out.println(playingDeck.valueCount);
+        
+        //playingDeck.printDecks(); //prints the cards in each of the decks
+        
+        ///Clear decks : make work
+        
+//        playingDeck.moveCardsBackToDeck();
+//        playingDeck.getCardsCounts();
+//        System.out.println(playingDeck.tmpDeck);
+        
+        
         
         //System.out.println(playingDeck)
         
