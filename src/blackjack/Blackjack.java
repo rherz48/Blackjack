@@ -88,7 +88,7 @@ public class Blackjack {
         playingDeck.checkVal();
         //System.out.println(playingDeck.tmpDeck);
         
-        System.out.println(playingDeck.valueCount);
+        System.out.println(playingDeck.valueCount); // prints the total value of the deck
         
         //
         
