@@ -30,7 +30,9 @@ public class Deck {
 
     // Use to keep track of the values in the decks****
     int valueCount = 0;
-    int testingNum = 0;
+    int aceCounter = 0;
+    
+    int testingNumErrors = 0;
     ///////
 
     ///
@@ -207,6 +209,8 @@ public class Deck {
         //all of the elements in the arrays.. find out why
         // What happened: cards.size(); is getting what it goes up until. It is 
         // going up to 51 and stops at 52.. should work fine still
+        //Fixed ^^
+        
         createFullDeck();
         //System.out.println(cards);
         shuffleDeck();
@@ -263,13 +267,17 @@ public class Deck {
         
         for (int i = 0; i < this.cards.size(); i++) {
 
-            if (strings.get(i).equals("CLUBS-ACE") || strings.get(i).equals("DIAMONDS-ACE")
-                    || strings.get(i).equals("HEARTS-ACE") || strings.get(i).equals("SPADES-ACE")) {
+            if (strings.get(i).equals("CLUBS-ACE") 
+                    || strings.get(i).equals("DIAMONDS-ACE")
+                    || strings.get(i).equals("HEARTS-ACE") 
+                    || strings.get(i).equals("SPADES-ACE")) {
 
                 //add more logic for Ace (determine if it should be 1 or 11)
                 //Also add a check if value is greater than 21 or not (if it should continue)
                 //int ac = 0;
-                valueCount += 1;
+                
+                aceCounter+=1;
+                //valueCount += 1; //works off of aceCounter now to determine value
                 //System.out.println("Working");
                 System.out.println("ACE " + "Position found: " + i);
 //                ac++;
@@ -379,23 +387,41 @@ public class Deck {
                 System.out.println("KING " + "Position found: " + i);
                 
             } else {
-                testingNum+=1; // if something does not work add 1
+                testingNumErrors+=1; // if something does not work add 1
 
                 //System.out.println("Working"); // prints until it finds the element it is looking for + the 1 working from above if it works
             }
             
             System.out.println(cards.get(i));
-            ++z;
-            System.out.println(z);
+            ++z; //Increments Card index number
+            System.out.println(z); // Current Card index number
             
 
         }
         
-        System.out.println(cards.get(50)); // works?
+        //System.out.println(cards.get(51)); // works?
         
-        System.out.println(testingNum);
+        System.out.println("Before adding value count: " + valueCount); // prints the total value before adding aces
+        
+        for (int i = 0; i < aceCounter; i++) {
+            
+            if(valueCount > 10) {
+                valueCount+=1;
+            }
+            else {
+                valueCount += 11;
+            }
+            System.out.println("Ace value Adding: " + valueCount); // prints what each ace value is 
+        }
+        
+        
+        System.out.println("");
+        
+        System.out.println("Error count:" + testingNumErrors); // if there is an error, print a number > 0
 
-        System.out.println(cards.size());
+        System.out.println("ACE Count: " + aceCounter);
+        
+        System.out.println(cards.size()); // Total cards in the array cards
 
         //System.out.println(cards.get(50)); 
         //System.out.print(cards.get(i) + " ");  
@@ -420,20 +446,20 @@ public class Deck {
 //        return -1;
     }
 
-    public void getCardValue() {
-        //determine the cards values
-
-        //FIX THIS CODE TO MAKE WORK WITH EXISTING CODE AND THE SEARCH ABOVE
-//        ArrayList<Card> arr = this.tmpPlayerDeck;
-//        int x = 10;
+//    public void getCardValue() {
+//        //determine the cards values
 //
-//        ArrayList<Card> result = search(cards, x);
-//        if (result == -1) {
-//            System.out.print("Element is not present in array");
-//        } else {
-//            System.out.print("Element is present at index " + result);
-//        }
-    }
+//        //FIX THIS CODE TO MAKE WORK WITH EXISTING CODE AND THE SEARCH ABOVE
+////        ArrayList<Card> arr = this.tmpPlayerDeck;
+////        int x = 10;
+////
+////        ArrayList<Card> result = search(cards, x);
+////        if (result == -1) {
+////            System.out.print("Element is not present in array");
+////        } else {
+////            System.out.print("Element is present at index " + result);
+////        }
+//    }
 
     public void getCardCounts() {
 
