@@ -74,15 +74,29 @@ public class Blackjack {
         
         
         //working on checking each element in the array and cardcounts from before
-        playingDeck.playerCards(); // add
+        //playingDeck.playerCards(); // add
         
         
         playingDeck.getCardCounts();
         
+        
         //working on checking each element in the array
+
+        System.out.println(""); // space between lines
+        
+        
         playingDeck.checkVal();
-        System.out.println(playingDeck.tmpDeck);
+        //System.out.println(playingDeck.tmpDeck);
+        
         System.out.println(playingDeck.valueCount);
+        
+        //
+        
+//        playingDeck.moveCardsBackToDeck();
+//        playingDeck.createFullDeck();
+//        //playingDeck.shuffleDeck();
+//        playingDeck.checkVal();
+//        System.out.println(playingDeck.valueCount);
         
         //playingDeck.printDecks(); //prints the cards in each of the decks
         

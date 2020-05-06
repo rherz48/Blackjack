@@ -24,14 +24,15 @@ public class Deck {
     private ArrayList<Card> cards;
 
     ArrayList<Card> tmpDeck = new ArrayList<Card>(); /////// this was added from below
-    
+
     ArrayList<Card> tmpPlayerDeck = new ArrayList<Card>();
     ArrayList<Card> tmpDealerDeck = new ArrayList<Card>();
 
     // Use to keep track of the values in the decks****
     int valueCount = 0;
+    int testingNum = 0;
     ///////
-    
+
     ///
     String playerCards[];
     String dealerCards[];
@@ -153,6 +154,11 @@ public class Deck {
         tmpDeck.removeAll(tmpDeck);
         tmpPlayerDeck.removeAll(tmpPlayerDeck);
         tmpDealerDeck.removeAll(tmpDealerDeck);
+        
+//        cards.clear();
+//        tmpDeck.clear();
+//        tmpPlayerDeck.clear();
+//        tmpDealerDeck.clear();
     }
 
     public void printDecks() {
@@ -231,9 +237,7 @@ public class Deck {
          * the equals // beside it for each one just copy and paste it so it
          * checks each suit for the 4 of them
          */
-
 //
-
 //        int cardValue = 0;
 //
 //        int n = this.cards.size();
@@ -247,47 +251,165 @@ public class Deck {
 //
 //            }
 //        }
-        
-        
         ///
-        
         //int valueCount = 0; added at the top
-        
         List<String> strings = cards.stream()
                 //List<String> strings = cards.stream()
                 .map(object -> Objects.toString(object, null))
                 .collect(Collectors.toList());
 
         
-        for (int i = 0; i < cards.size(); i++)  
-            
-            if (strings.get(i).equals("HEARTS-ACE")) {
-                
+        int z =0;
+        
+        for (int i = 0; i < this.cards.size(); i++) {
+
+            if (strings.get(i).equals("CLUBS-ACE") || strings.get(i).equals("DIAMONDS-ACE")
+                    || strings.get(i).equals("HEARTS-ACE") || strings.get(i).equals("SPADES-ACE")) {
+
                 //add more logic for Ace (determine if it should be 1 or 11)
                 //Also add a check if value is greater than 21 or not (if it should continue)
-                valueCount+=1;
-                System.out.println("Working");
-                break;
-            }
-            else {
+                //int ac = 0;
+                valueCount += 1;
+                //System.out.println("Working");
+                System.out.println("ACE " + "Position found: " + i);
+//                ac++;
+//                System.out.println(ac);
+                //break;
+//            }else if (strings.get(i).equals("HEARTS-TWO") || strings.get(i).equals("CLUBS-TWO")){
+//                valueCount+=2;
+
+///////////////////////////////
+// fix not always working (sometimes gives different values???)
+/////////////////////////////////////////////
+            } else if (strings.get(i).equals("CLUBS-TWO") 
+                    || strings.get(i).equals("DIAMONDS-TWO")
+                    || strings.get(i).equals("HEARTS-TWO") 
+                    || strings.get(i).equals("SPADES-TWO")) {
+
+                valueCount += 2;
+
+                System.out.println("TWO " + "Position found: " + i);
+
+            } else if (strings.get(i).equals("CLUBS-THREE") 
+                    || strings.get(i).equals("DIAMONDS-THREE")
+                    || strings.get(i).equals("HEARTS-THREE") 
+                    || strings.get(i).equals("SPADES-THREE")) {
+
+                valueCount += 3;
+                System.out.println("THREE " + "Position found: " + i);
+
+            } else if (strings.get(i).equals("CLUBS-FOUR") 
+                    || strings.get(i).equals("DIAMONDS-FOUR")
+                    || strings.get(i).equals("HEARTS-FOUR") 
+                    || strings.get(i).equals("SPADES-FOUR")) {
+
+                valueCount += 4;
+                System.out.println("FOUR " + "Position found: " + i);
+
+            } else if (strings.get(i).equals("CLUBS-FIVE") 
+                    || strings.get(i).equals("DIAMONDS-FIVE")
+                    || strings.get(i).equals("HEARTS-FIVE") 
+                    || strings.get(i).equals("SPADES-FIVE")) {
+
+                valueCount += 5;
+                System.out.println("FIVE " + "Position found: " + i);
+
+            } else if (strings.get(i).equals("CLUBS-SIX") 
+                    || strings.get(i).equals("DIAMONDS-SIX")
+                    || strings.get(i).equals("HEARTS-SIX") 
+                    || strings.get(i).equals("SPADES-SIX")) {
+
+                valueCount += 6;
+                System.out.println("SIX " + "Position found: " + i);
+
+            } else if (strings.get(i).equals("CLUBS-SEVEN") 
+                    || strings.get(i).equals("DIAMONDS-SEVEN")
+                    || strings.get(i).equals("HEARTS-SEVEN") 
+                    || strings.get(i).equals("SPADES-SEVEN")) {
+
+                valueCount += 7;
+                System.out.println("SEVEN " + "Position found: " + i);
+
+            } else if (strings.get(i).equals("CLUBS-EIGHT") 
+                    || strings.get(i).equals("DIAMONDS-EIGHT")
+                    || strings.get(i).equals("HEARTS-EIGHT") 
+                    || strings.get(i).equals("SPADES-EIGHT")) {
+
+                valueCount += 8;
+                System.out.println("EIGHT " + "Position found: " + i);
+
+            } else if (strings.get(i).equals("CLUBS-NINE") 
+                    || strings.get(i).equals("DIAMONDS-NINE")
+                    || strings.get(i).equals("HEARTS-NINE") 
+                    || strings.get(i).equals("SPADES-NINE")) {
+
+                valueCount += 9;
+                System.out.println("NINE " + "Position found: " + i);
+
+            } else if (strings.get(i).equals("CLUBS-TEN") 
+                    || strings.get(i).equals("DIAMONDS-TEN")
+                    || strings.get(i).equals("HEARTS-TEN") 
+                    || strings.get(i).equals("SPADES-TEN")) {
+
+                valueCount += 10;
+                System.out.println("TEN " + "Position found: " + i);
+
+            } else if (strings.get(i).equals("CLUBS-JACK") 
+                    || strings.get(i).equals("DIAMONDS-JACK")
+                    || strings.get(i).equals("HEARTS-JACK") 
+                    || strings.get(i).equals("SPADES-JACK")) {
+
+                valueCount += 10;
+                System.out.println("JACK " + "Position found: " + i);
+
+            } else if (strings.get(i).equals("CLUBS-QUEEN") 
+                    || strings.get(i).equals("DIAMONDS-QUEEN")
+                    || strings.get(i).equals("HEARTS-QUEEN") 
+                    || strings.get(i).equals("SPADES-QUEEN")) {
+
+                valueCount += 10;
+                System.out.println("QUEEN " + "Position found: " + i);
+
+            } else if (strings.get(i).equals("CLUBS-KING") 
+                    || strings.get(i).equals("DIAMONDS-KING")
+                    || strings.get(i).equals("HEARTS-KING") 
+                    || strings.get(i).equals("SPADES-KING")) {
+
+                valueCount += 10;
+                System.out.println("KING " + "Position found: " + i);
+                
+            } else {
+                testingNum+=1; // if something does not work add 1
+
                 //System.out.println("Working"); // prints until it finds the element it is looking for + the 1 working from above if it works
             }
-            //System.out.print(cards.get(i) + " ");  
+            
+            System.out.println(cards.get(i));
+            ++z;
+            System.out.println(z);
+            
+
+        }
         
+        System.out.println(cards.get(50)); // works?
+        
+        System.out.println(testingNum);
+
+        System.out.println(cards.size());
+
+        //System.out.println(cards.get(50)); 
+        //System.out.print(cards.get(i) + " ");  
         //System.out.println(cards); //
         return strings;
-        
+
         //List<Integer> numbers = Arrays.asList(cards); 
-                                        
-  
         // For Loop for iterating ArrayList 
 //        for (int i = 0; i < numbers.size(); i++)  
 //            System.out.print(numbers.get(i) + " ");  
-        
         //Testing above also**
         //CHANGE AND MAKE WORK WITH EXISTING CODE
         //    public ArrayList<Card> search(List<Card> cards, String x) {
-    //public List<Card> search(List<> cards, String x) {
+        //public List<Card> search(List<> cards, String x) {
 //    public List search() {
 //        int n = this.cards.size();
 //        for (int i = 0; i < n; i++) {
