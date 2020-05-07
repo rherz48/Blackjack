@@ -28,89 +28,150 @@ public class Blackjack {
         Player playerInfo = new Player();
         
         
-        //Arrays to hold the cards being used
-        //String allCards[];
-        //String playerCards[];
-        //String dealerCards[];
-       ///
-        
-        //playingDeck.removeCard();
         
         playingDeck.createFullDeck();
         playingDeck.shuffleDeck();
         
-        
-        //removeCard is not set to work: use removeACard instead
-        //playingDeck.removeCard(); //fix : this runs first because in the remove card it is currently set to print everything in it....
-        
-        
-        
-        System.out.println(playingDeck);
-        
-        //playingDeck.removeCard(); //currently prints the deck out ..
-        
-        
-        System.out.println(playingDeck.newDeck());
-        playingDeck.removeACard(); // remove a card from the deck
-        System.out.println(playingDeck.newDeck()); //prints the deck after removing a card
-        
-        playingDeck.playerCards();
-        
-        System.out.println(playingDeck.tmpDeck);
-        
-        playingDeck.dealerCards();
-        //playingDeck.removeACard();
-        
-        
-        System.out.println(playingDeck.tmpDealerDeck); //prints the dealers temp deck: tmpDealerDeck
-        
-        playingDeck.getCardCounts();
-        
-        
-        System.out.println("-----");
-        playingDeck.moveCardsBackToDeck();
-        
-        //playingDeck.clearAllDecks(); //Clears all the cards in the decks
-        
-        
-        //working on checking each element in the array and cardcounts from before
-        //playingDeck.playerCards(); // add
-        
-        
-        playingDeck.getCardCounts();
-        
-        
-        //working on checking each element in the array
-
-        System.out.println(""); // space between lines
-        
-        
-        playingDeck.checkVal();
-        //System.out.println(playingDeck.tmpDeck);
-        
-        System.out.println(playingDeck.valueCount); // prints the total value of the deck
-        
-        //
-        
-        // player test..
+        //Player draws two cards..
         playingDeck.playerCards();
         playingDeck.playerCards();
-        playingDeck.playerCards();
-        playingDeck.playerCards();
+        
         playingDeck.checkValtmpPlayerDeck();
         
-        //dealer test.. 
+        //Dealer draws two cards.. 
         
-        playingDeck.dealerCards();
-        playingDeck.dealerCards();
         playingDeck.dealerCards();
         playingDeck.dealerCards();
         playingDeck.checkValtmpDealerDeck();
         
-        System.out.println("Player: " + playingDeck.valueCountPlayer);
-        System.out.println(playingDeck.tmpPlayerDeck);
+        
+        System.out.println("");
+        
+        //Print the player's cards and the total value of them
+        System.out.println("Value: " + playingDeck.valueCountPlayer);
+        System.out.println("Your Cards: " + playingDeck.tmpPlayerDeck);
+        
+        System.out.println("");
+        //Prints the dealers first card and [Hidden] (card not shown until after)
+        
+        /*
         System.out.println("Dealer: " + playingDeck.valueCountDealer);
         System.out.println(playingDeck.tmpDealerDeck);
+        */
+        System.out.println("Dealer's Cards: " + playingDeck.tmpDealerDeck.get(0) + " + " +  "[HIDDEN]");
+        //System.out.println(playingDeck.tmpDealerDeck); //prints all cards
+        
+        System.out.println();
+        
+        
+        System.out.println("What would you like to do?"); //add game logic here after
+        
+        
+        //get bet amount
+        System.out.print("Bet Amount: ");
+        playerInfo.playerBetAmount();
+        
+        //display player's bet amount
+        System.out.println("Player Bet: " +playerInfo.playerBet);
+        
+        //Set dealer bet amount
+        playerInfo.dealerBetAmount();
+        System.out.println("Dealer Bet: " +playerInfo.dealerBet);
+        
+        //Display amount of money if won
+        playerInfo.Winner();
+        System.out.println(playerInfo.winAmount);
+        
+        
+//        //Arrays to hold the cards being used
+//        //String allCards[];
+//        //String playerCards[];
+//        //String dealerCards[];
+//       ///
+//        
+//        //playingDeck.removeCard();
+//        
+//        playingDeck.createFullDeck();
+//        playingDeck.shuffleDeck();
+//        
+//        
+//        //removeCard is not set to work: use removeACard instead
+//        //playingDeck.removeCard(); //fix : this runs first because in the remove card it is currently set to print everything in it....
+//        
+//        
+//        
+//        System.out.println(playingDeck);
+//        
+//        //playingDeck.removeCard(); //currently prints the deck out ..
+//        
+//        
+//        System.out.println(playingDeck.newDeck());
+//        playingDeck.removeACard(); // remove a card from the deck
+//        System.out.println(playingDeck.newDeck()); //prints the deck after removing a card
+//        
+//        playingDeck.playerCards();
+//        
+//        System.out.println(playingDeck.tmpDeck);
+//        
+//        playingDeck.dealerCards();
+//        //playingDeck.removeACard();
+//        
+//        
+//        System.out.println(playingDeck.tmpDealerDeck); //prints the dealers temp deck: tmpDealerDeck
+//        
+//        playingDeck.getCardCounts();
+//        
+//        
+//        System.out.println("-----");
+//        playingDeck.moveCardsBackToDeck();
+//        
+//        //playingDeck.clearAllDecks(); //Clears all the cards in the decks
+//        
+//        
+//        //working on checking each element in the array and cardcounts from before
+//        //playingDeck.playerCards(); // add
+//        
+//        
+//        playingDeck.getCardCounts();
+//        
+//        
+//        //working on checking each element in the array
+//
+//        System.out.println(""); // space between lines
+//        
+//        
+//        playingDeck.checkVal();
+//        //System.out.println(playingDeck.tmpDeck);
+//        
+//        System.out.println(playingDeck.valueCount); // prints the total value of the deck
+//        
+//        //
+
+//        playingDeck.createFullDeck();
+//        playingDeck.shuffleDeck();
+//        
+//        // player test..
+//        playingDeck.playerCards();
+//        playingDeck.playerCards();
+//        
+//        playingDeck.checkValtmpPlayerDeck();
+//        
+//        //dealer test.. 
+//        
+//        playingDeck.dealerCards();
+//        playingDeck.dealerCards();
+//        playingDeck.checkValtmpDealerDeck();
+//        
+//        System.out.println("Player: " + playingDeck.valueCountPlayer);
+//        System.out.println(playingDeck.tmpPlayerDeck);
+//        System.out.println("Dealer: " + playingDeck.valueCountDealer);
+//        System.out.println(playingDeck.tmpDealerDeck);
+        
+        
+        //
+        
+        
+        
 //        playingDeck.moveCardsBackToDeck();
 //        playingDeck.createFullDeck();
 //        //playingDeck.shuffleDeck();

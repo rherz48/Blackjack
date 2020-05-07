@@ -455,7 +455,7 @@ public class Deck {
                 .map(object -> Objects.toString(object, null))
                 .collect(Collectors.toList());
 
-        System.out.println("STARTS HERE //////////////////////////////");
+        //System.out.println("STARTS HERE //////////////////////////////");
 
         int z = 0;
 
@@ -615,7 +615,7 @@ public class Deck {
                 .map(object -> Objects.toString(object, null))
                 .collect(Collectors.toList());
 
-        System.out.println("STARTS HERE //////////////////////////////");
+        //System.out.println("STARTS HERE //////////////////////////////");
 
         int z = 0;
 

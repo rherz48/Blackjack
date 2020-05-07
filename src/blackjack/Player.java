@@ -14,30 +14,38 @@ import java.util.Scanner;
  */
 public class Player {
     
-    double Money = 1000; //the player's money amount
+    double money = 1000; //the player's money amount
     
-    double currentBet = 0; //used to set the dealer's current bet amount
+    double playerBet = 0; //used to set the dealer's current bet amount
+    double dealerBet = 0; // dealer bet
     
+    double winAmount = 0; //Win Amount
     
     Scanner input = new Scanner(System.in);
     
-    public double playerBetAmount(double Bet) {
+    public double playerBetAmount() {
         
         double moneyAmount = input.nextDouble();
         
-        currentBet+=moneyAmount; // to use for the dealer to get the current bet
+        playerBet+=moneyAmount; // to use for the dealer to get the current bet
         
         //this.betAmount(moneyAmount);
-        return Money-=moneyAmount;
+        return money-=moneyAmount;
         
     }
     public double dealerBetAmount() { // gets the dealer's bet amount
         //Player a = new Player();
         
-        return this.currentBet;
+        dealerBet+=playerBet;
+        
+        return this.dealerBet;
     }
-    public double amountToWin(double amountIfWon) {
-        return amountIfWon = currentBet*2; //doubles the dealer's amount (which is the player's bet amount)
+    public double Winner() {
+        
+        winAmount+=dealerBet + playerBet;
+        money+=winAmount;
+        
+        return money; //doubles the dealer's amount (which is the player's bet amount)
     }
     
     public void exitApp() {
