@@ -13,101 +13,92 @@ import java.util.Scanner;
  * @author ryanh
  */
 public class Blackjack {
-    
-    
+
     public static final String ANSI_BLUE = "\u001B[34m"; // colour blue
     public static final String ANSI_RESET = "\u001B[0m"; //used after colours to reset it so not everything will have that colour
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         Deck playingDeck = new Deck();
         Player playerInfo = new Player();
-        
-        
+
         //
         playingDeck.createFullDeck();
         playingDeck.shuffleDeck();
-        
+
         //Player draws two cards..
         playingDeck.playerCards();
         playingDeck.playerCards();
-        
+
         playingDeck.checkValtmpPlayerDeck();
-        
+
         //Dealer draws two cards.. 
-        
         playingDeck.dealerCards();
         playingDeck.dealerCards();
         playingDeck.checkValtmpDealerDeck();
-        
-        
+
         System.out.println("");
-        
+
         //Print the player's cards and the total value of them
         System.out.println("Value: " + playingDeck.valueCountPlayer);
         System.out.println("Your Cards: " + playingDeck.tmpPlayerDeck);
-        
+
         System.out.println("");
         //Prints the dealers first card and [Hidden] (card not shown until after)
-        
+
         /*
         System.out.println("Dealer: " + playingDeck.valueCountDealer);
         System.out.println(playingDeck.tmpDealerDeck);
-        */
-        System.out.println("Dealer's Cards: " + playingDeck.tmpDealerDeck.get(0) + " + " +  "[HIDDEN]");
+         */
+        System.out.println("Dealer's Cards: " + playingDeck.tmpDealerDeck.get(0) + " + " + "[HIDDEN]");
         //System.out.println(playingDeck.tmpDealerDeck); //prints all cards
-        
+
         System.out.println();
-        
-        
-        
+
         // Change blackjack code layout logic after..
-        
         //Change how many digits the bet accepts (e.g 10.00 will work vs 10.12345 will not/will just round the number)
-        
-        
         System.out.println("What would you like to do?"); //add game logic here after
-        
-        
+
         //get bet amount
         System.out.print("Bet Amount: $");
         playerInfo.playerBetAmount();
-        
+//        if (playerInfo.playerBet > playerInfo.money) {
+//            System.out.println("You don't have that much money..");
+//        }
+
         //display player's bet amount
-        System.out.println("Player Bet: $" +playerInfo.playerBet);
+        System.out.println("Player Bet: $" + playerInfo.playerBet);
+
         
         //Set dealer bet amount
         playerInfo.dealerBetAmount();
-        System.out.println("Dealer Bet: $" +playerInfo.dealerBet);
+        System.out.println("Dealer Bet: $" + playerInfo.dealerBet);
+
+        
         
         //Display amount of money if won
-        playerInfo.Winner();
-        System.out.println("Jackpot: $" + playerInfo.winAmount);
-        
+        playerInfo.displayWinAmount();
+        System.out.println("Jackpot: $" + playerInfo.displayWinAmount());
+
         //Reveal dealers cards
         System.out.println("Dealer's Cards: " + playingDeck.tmpDealerDeck);
+
         
-        
-        
-        
-        
+
         //Determine who won
         if (playingDeck.valueCountPlayer > playingDeck.valueCountDealer) {
+            playerInfo.Winner();
             System.out.println("You win!");
         } else if (playingDeck.valueCountDealer > playingDeck.valueCountPlayer) {
             System.out.println("You lose!");
         }
         
-  
-        
-        
-        
-        
-        
+        System.out.println(playerInfo.money);
+
 //        //Arrays to hold the cards being used
 //        //String allCards[];
 //        //String playerCards[];
@@ -171,7 +162,6 @@ public class Blackjack {
 //        System.out.println(playingDeck.valueCount); // prints the total value of the deck
 //        
 //        //
-
 //        playingDeck.createFullDeck();
 //        playingDeck.shuffleDeck();
 //        
@@ -191,31 +181,18 @@ public class Blackjack {
 //        System.out.println(playingDeck.tmpPlayerDeck);
 //        System.out.println("Dealer: " + playingDeck.valueCountDealer);
 //        System.out.println(playingDeck.tmpDealerDeck);
-        
-        
         //
-        
-        
-        
 //        playingDeck.moveCardsBackToDeck();
 //        playingDeck.createFullDeck();
 //        //playingDeck.shuffleDeck();
 //        playingDeck.checkVal();
 //        System.out.println(playingDeck.valueCount);
-        
         //playingDeck.printDecks(); //prints the cards in each of the decks
-        
         ///Clear decks : make work
-        
 //        playingDeck.moveCardsBackToDeck();
 //        playingDeck.getCardsCounts();
 //        System.out.println(playingDeck.tmpDeck);
-        
-        
-        
         //System.out.println(playingDeck)
-        
-        
 //
 //
 //
@@ -325,8 +302,6 @@ public class Blackjack {
 //
 //        
 //        
-
-
-        }
-
     }
+
+}

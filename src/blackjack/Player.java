@@ -29,8 +29,9 @@ public class Player {
         
         playerBet+=moneyAmount; // to use for the dealer to get the current bet
         
+        
         //this.betAmount(moneyAmount);
-        return money-=moneyAmount;
+        return playerBet;//money-=moneyAmount;
         
     }
     public double dealerBetAmount() { // gets the dealer's bet amount
@@ -38,14 +39,19 @@ public class Player {
         
         dealerBet+=playerBet;
         
-        return this.dealerBet;
+        return dealerBet;
+    }
+    public double displayWinAmount() {
+        return dealerBet + playerBet;
     }
     public double Winner() {
         
         winAmount+=dealerBet + playerBet;
+        //winAmount+= playerBetAmount() + dealerBetAmount();
         money+=winAmount;
+        //money+=winAmount;
         
-        return money; //doubles the dealer's amount (which is the player's bet amount)
+        return money; //+= dealerBet; //doubles the dealer's amount (which is the player's bet amount)
     }
     
     public void exitApp() {
