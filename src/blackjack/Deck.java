@@ -74,58 +74,58 @@ public class Deck {
         Collections.shuffle(cards); //Shuffles arraylist cards
     }
 
-    public void removeCard() {
-        //cards.get(0);
-        // playerCards.add(cards.get(0));
-
-        //WORKING WITH THIS
-        ////
-        //all null atm... fix and do something
-//        Integer[] arr = new Integer[cards.size()]; 
-//        cards.toArray(new Card[cards.size()]); // added 
-//        for (Integer abc : arr) {
-//            System.out.println(Arrays.toString(arr));
-//        }
-//        String[] strArr = new String[cards.size()];
-//        cards.toArray(strArr);
-//        System.out.println("Created Array content:");
-//        for(String str:strArr){
-//            System.out.println(str);
-//        }
-        //
-        //here
-        //ArrayList<Card> tmpDeck = new ArrayList<Card>();
-        List<String> strings = tmpDeck.stream()
-                //List<String> strings = cards.stream()
-                .map(object -> Objects.toString(object, null))
-                .collect(Collectors.toList());
-
-        System.out.println(cards); //
-
-        //cards.remove(0);
-        //
-//        randomCardIndex = cards[0];
-//        
-//        for(Card str : tmpDeck) {
-//            tmpDeck.add(this.cards.get(randomCardIndex));
-//            
-//        }
-//        this.cards = tmpDeck;
-//        //Use Random
-//        Random random = new Random();
-//        int randomCardIndex = 0;
-//        int originalSize = this.cards.size();
-//        for (int i = 0; i < originalSize; i++) {
-//            //Generate Random Index rand.nextInt((max - min)) + 1) + min;
-//            randomCardIndex = random.nextInt((this.cards.size() - 1 - 0) + 1) + 0;
-//            tmpDeck.add(this.cards.get(randomCardIndex));
-//            //Remove from original deck
-//            this.cards.remove(randomCardIndex);
-//        }
-//        this.cards = tmpDeck;
-        //////
-        //cards.remove(0); /// Removes cards 0 from the arraylist
-    }
+//    public void removeCard() {
+//        //cards.get(0);
+//        // playerCards.add(cards.get(0));
+//
+//        //WORKING WITH THIS
+//        ////
+//        //all null atm... fix and do something
+////        Integer[] arr = new Integer[cards.size()]; 
+////        cards.toArray(new Card[cards.size()]); // added 
+////        for (Integer abc : arr) {
+////            System.out.println(Arrays.toString(arr));
+////        }
+////        String[] strArr = new String[cards.size()];
+////        cards.toArray(strArr);
+////        System.out.println("Created Array content:");
+////        for(String str:strArr){
+////            System.out.println(str);
+////        }
+//        //
+//        //here
+//        //ArrayList<Card> tmpDeck = new ArrayList<Card>();
+//        List<String> strings = tmpDeck.stream()
+//                //List<String> strings = cards.stream()
+//                .map(object -> Objects.toString(object, null))
+//                .collect(Collectors.toList());
+//
+//        System.out.println(cards); //
+//
+//        //cards.remove(0);
+//        //
+////        randomCardIndex = cards[0];
+////        
+////        for(Card str : tmpDeck) {
+////            tmpDeck.add(this.cards.get(randomCardIndex));
+////            
+////        }
+////        this.cards = tmpDeck;
+////        //Use Random
+////        Random random = new Random();
+////        int randomCardIndex = 0;
+////        int originalSize = this.cards.size();
+////        for (int i = 0; i < originalSize; i++) {
+////            //Generate Random Index rand.nextInt((max - min)) + 1) + min;
+////            randomCardIndex = random.nextInt((this.cards.size() - 1 - 0) + 1) + 0;
+////            tmpDeck.add(this.cards.get(randomCardIndex));
+////            //Remove from original deck
+////            this.cards.remove(randomCardIndex);
+////        }
+////        this.cards = tmpDeck;
+//        //////
+//        //cards.remove(0); /// Removes cards 0 from the arraylist
+//    }
 
     //change cards to list?
     public List<String> newDeck() {
