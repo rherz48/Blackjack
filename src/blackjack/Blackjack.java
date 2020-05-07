@@ -92,6 +92,25 @@ public class Blackjack {
         
         //
         
+        // player test..
+        playingDeck.playerCards();
+        playingDeck.playerCards();
+        playingDeck.playerCards();
+        playingDeck.playerCards();
+        playingDeck.checkValtmpPlayerDeck();
+        
+        //dealer test.. 
+        
+        playingDeck.dealerCards();
+        playingDeck.dealerCards();
+        playingDeck.dealerCards();
+        playingDeck.dealerCards();
+        playingDeck.checkValtmpDealerDeck();
+        
+        System.out.println("Player: " + playingDeck.valueCountPlayer);
+        System.out.println(playingDeck.tmpPlayerDeck);
+        System.out.println("Dealer: " + playingDeck.valueCountDealer);
+        System.out.println(playingDeck.tmpDealerDeck);
 //        playingDeck.moveCardsBackToDeck();
 //        playingDeck.createFullDeck();
 //        //playingDeck.shuffleDeck();
