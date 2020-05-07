@@ -94,6 +94,7 @@ public class Blackjack {
             playerInfo.Winner();
             System.out.println("You win!");
         } else if (playingDeck.valueCountDealer > playingDeck.valueCountPlayer) {
+            playerInfo.Loser();
             System.out.println("You lose!");
         }
         

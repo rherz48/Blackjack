@@ -53,6 +53,15 @@ public class Player {
         
         return money; //+= dealerBet; //doubles the dealer's amount (which is the player's bet amount)
     }
+    public double Loser() {
+        
+        //winAmount+=dealerBet + playerBet;
+        //winAmount+= playerBetAmount() + dealerBetAmount();
+        money-=playerBet;
+        //money+=winAmount;
+        
+        return money; //+= dealerBet; //doubles the dealer's amount (which is the player's bet amount)
+    }
     
     public void exitApp() {
         System.exit(0);
