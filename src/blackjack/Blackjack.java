@@ -28,7 +28,7 @@ public class Blackjack {
         Player playerInfo = new Player();
         
         
-        
+        //
         playingDeck.createFullDeck();
         playingDeck.shuffleDeck();
         
@@ -64,23 +64,48 @@ public class Blackjack {
         System.out.println();
         
         
+        
+        // Change blackjack code layout logic after..
+        
+        //Change how many digits the bet accepts (e.g 10.00 will work vs 10.12345 will not/will just round the number)
+        
+        
         System.out.println("What would you like to do?"); //add game logic here after
         
         
         //get bet amount
-        System.out.print("Bet Amount: ");
+        System.out.print("Bet Amount: $");
         playerInfo.playerBetAmount();
         
         //display player's bet amount
-        System.out.println("Player Bet: " +playerInfo.playerBet);
+        System.out.println("Player Bet: $" +playerInfo.playerBet);
         
         //Set dealer bet amount
         playerInfo.dealerBetAmount();
-        System.out.println("Dealer Bet: " +playerInfo.dealerBet);
+        System.out.println("Dealer Bet: $" +playerInfo.dealerBet);
         
         //Display amount of money if won
         playerInfo.Winner();
-        System.out.println(playerInfo.winAmount);
+        System.out.println("Jackpot: $" + playerInfo.winAmount);
+        
+        //Reveal dealers cards
+        System.out.println("Dealer's Cards: " + playingDeck.tmpDealerDeck);
+        
+        
+        
+        
+        
+        //Determine who won
+        if (playingDeck.valueCountPlayer > playingDeck.valueCountDealer) {
+            System.out.println("You win!");
+        } else if (playingDeck.valueCountDealer > playingDeck.valueCountPlayer) {
+            System.out.println("You lose!");
+        }
+        
+  
+        
+        
+        
         
         
 //        //Arrays to hold the cards being used
