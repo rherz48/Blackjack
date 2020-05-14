@@ -6,6 +6,8 @@
 
 package blackjack;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author ryanh
@@ -19,11 +21,54 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         //
         Player p = new Player();
           
-        //Display the player's money when the game starts
+        //Displays the player's money when the game starts
         BalancejTextField.setText(String.valueOf(p.money));
         
         
         
+        //Create the game ... 
+        
+        Deck playingDeck = new Deck();
+        Player playerInfo = new Player();
+        
+        playingDeck.createFullDeck();
+        playingDeck.shuffleDeck();
+        
+        
+        //Player draws two cards..
+            playingDeck.playerCards();
+            playingDeck.playerCards();
+
+            playingDeck.checkValtmpPlayerDeck();
+
+            //Dealer draws two cards.. 
+            playingDeck.dealerCards();
+            playingDeck.dealerCards();
+            playingDeck.checkValtmpDealerDeck();
+
+            System.out.println("");
+
+            //Print the player's cards and the total value of them
+            System.out.println("Value: " + playingDeck.valueCountPlayer);
+            System.out.println("Your Cards: " + playingDeck.tmpPlayerDeck);
+
+            System.out.println("");
+
+            //Prints the dealers first card and [Hidden] (card not shown until after)
+            System.out.println("Dealer's Cards: " + playingDeck.tmpDealerDeck.get(0) + " + " + "[HIDDEN]");
+
+            System.out.println();
+        
+            
+            
+            
+            //Add image logic here..
+            ImageIcon image = new ImageIcon(getClass().getResource("/images/money_bag_48px.png"));
+            
+            //image.addActionListener(this);
+            DisplayedCardImage1jLabel.setIcon(image);
+            DisplayedCardImage1jLabel.setText("");
+            
     }
 
     /** This method is called from within the constructor to
@@ -37,6 +82,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        DisplayedCardImage1jLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         BalancejLabel = new javax.swing.JLabel();
         BetjLabel = new javax.swing.JLabel();
@@ -55,15 +101,24 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 153, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 3, new java.awt.Color(0, 0, 0)));
 
+        DisplayedCardImage1jLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DisplayedCardImage1jLabel.setText("Card 1");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(DisplayedCardImage1jLabel)
+                .addContainerGap(586, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(DisplayedCardImage1jLabel)
+                .addContainerGap(254, Short.MAX_VALUE))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/money_bag_48px.png"))); // NOI18N
@@ -100,6 +155,11 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
         PlaceBetjButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         PlaceBetjButton.setText("Place Bet");
+        PlaceBetjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlaceBetjButtonActionPerformed(evt);
+            }
+        });
 
         HitjButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         HitjButton.setText("Hit");
@@ -113,7 +173,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 134, Short.MAX_VALUE))
+                .addGap(0, 117, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
@@ -164,7 +224,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel1)
-                        .addGap(0, 29, Short.MAX_VALUE))))
+                        .addGap(0, 21, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -195,6 +255,46 @@ public class BlackjackUI2 extends javax.swing.JFrame {
     private void JackpotjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JackpotjTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JackpotjTextFieldActionPerformed
+
+    private void PlaceBetjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceBetjButtonActionPerformed
+        // TODO add your handling code here:
+        
+        Player p = new Player();
+        
+        double num1;
+        
+        try {
+            
+        
+        num1 = Double.parseDouble(BetjTextField.getText());
+        
+        if (num1 < p.money) {
+            
+            // ..
+            p.playerBet=num1; //set the player bet to num1
+            
+            p.money-=num1; // take the player's bet
+            System.out.println(p.money); //print out the player's new balance
+            
+            p.dealerBet=p.playerBet*2;
+            
+            BalancejTextField.setText(String.valueOf(p.money)); // update the players money displayed
+            JackpotjTextField.setText(String.valueOf(p.dealerBet)); // set the jackpot
+            
+            
+            // ..
+            System.out.println("Valid bet");
+            
+        } else if (num1 > p.money) {
+            System.out.println("Kicked out of the casino!");
+            System.exit(0); // Exit application
+        }
+        
+        } catch (NumberFormatException e) { //Number format exception
+            System.out.println("NumberFormatException");
+        }
+        
+    }//GEN-LAST:event_PlaceBetjButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,6 +336,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
     private javax.swing.JTextField BalancejTextField;
     private javax.swing.JLabel BetjLabel;
     private javax.swing.JTextField BetjTextField;
+    private javax.swing.JLabel DisplayedCardImage1jLabel;
     private javax.swing.JButton HitjButton;
     private javax.swing.JLabel JackpotjLabel;
     private javax.swing.JTextField JackpotjTextField;
