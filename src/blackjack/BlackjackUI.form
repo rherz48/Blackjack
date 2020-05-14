@@ -40,16 +40,11 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel3" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel3" max="32767" attributes="0"/>
           </Group>
+          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -78,7 +73,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="260" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="260" max="32767" attributes="0"/>
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -96,30 +91,35 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <Component id="BalancejLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                              <Component id="DisplayedBalanceField" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Component id="BetjLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                              <Component id="DisplayedBetField" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="JackpotjLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DisplayedJackpotField" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="PlaceBetjButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="HitjButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                              <Component id="StayjButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace pref="119" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -130,23 +130,25 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="BalancejLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DisplayedBalanceField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="PlaceBetjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="HitjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="StayjButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="BetjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DisplayedBetField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JackpotjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DisplayedJackpotField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -159,9 +161,64 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="BalancejLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Balance: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="DisplayedBalanceField">
+              <Properties>
+                <Property name="selectionEnd" type="int" value="11"/>
+                <Property name="selectionStart" type="int" value="11"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DisplayedBalanceFieldActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="BetjLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Bet:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="DisplayedBetField">
+              <Properties>
+                <Property name="selectionEnd" type="int" value="11"/>
+                <Property name="selectionStart" type="int" value="11"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="JackpotjLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Jackpot:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="DisplayedJackpotField">
+              <Properties>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[61, 20]"/>
+                </Property>
+                <Property name="selectionEnd" type="int" value="11"/>
+                <Property name="selectionStart" type="int" value="11"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DisplayedJackpotFieldActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="PlaceBetjButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Place Bet"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PlaceBetjButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="HitjButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hit"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="StayjButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Stay"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField1">
@@ -171,47 +228,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Bet:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Jackpot:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField3"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jButton1"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jButton2"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jButton3"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

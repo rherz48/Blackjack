@@ -45,12 +45,12 @@ public class Deck {
 
     ///////
     ///
-    String playerCards[];
-    String dealerCards[];
+    //String playerCards[];
+    //String dealerCards[];
     ///
 
-    private String[] cardsBeingUsed; // do something
-    private String[] discardPile; // do something
+    //private String[] cardsBeingUsed; // do something
+    //private String[] discardPile; // do something
 
     //private ArrayList<Card> playerCards; // FIX AND DO STUFF
     //constructor

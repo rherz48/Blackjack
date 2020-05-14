@@ -26,6 +26,185 @@ public class Blackjack {
         Deck playingDeck = new Deck();
         Player playerInfo = new Player();
 
+        Scanner input = new Scanner(System.in);
+
+        //boolean endRound = false;
+        //boolean hasEnded = true;
+//        if (endRound == true) {
+//            playerInfo
+//        }
+        //DOES NOT WORK //////////////////////// MAKE WORK
+        while (playerInfo.money > 0) {
+
+            //
+            //
+                playerInfo.winAmount = 0;
+                
+            //Reset card values
+            playingDeck.valueCountPlayer = 0;
+            playingDeck.aceCounterPlayer = 0;
+
+            playingDeck.valueCountDealer = 0;
+            playingDeck.aceCounterDealer = 0;
+
+            //Reset bets
+            playerInfo.playerBet = 0;
+            playerInfo.dealerBet = 0;
+
+            //Clear the decks
+            playingDeck.clearAllDecks();
+            //
+
+            playingDeck.createFullDeck();
+            playingDeck.shuffleDeck();
+
+            //Player draws two cards..
+            playingDeck.playerCards();
+            playingDeck.playerCards();
+
+            playingDeck.checkValtmpPlayerDeck();
+
+            //Dealer draws two cards.. 
+            playingDeck.dealerCards();
+            playingDeck.dealerCards();
+            playingDeck.checkValtmpDealerDeck();
+
+            System.out.println("");
+
+            //Print the player's cards and the total value of them
+            System.out.println("Value: " + playingDeck.valueCountPlayer);
+            System.out.println("Your Cards: " + playingDeck.tmpPlayerDeck);
+
+            System.out.println("");
+
+            //Prints the dealers first card and [Hidden] (card not shown until after)
+            System.out.println("Dealer's Cards: " + playingDeck.tmpDealerDeck.get(0) + " + " + "[HIDDEN]");
+
+            System.out.println();
+
+            //System.out.println("What would you like to do?"); //add game logic here after
+            //get bet amount
+            System.out.print("Bet Amount: $");
+
+            //Build a try catch to check if the input is valid ..
+//            try {
+//                playerInfo.playerBetAmount();
+//            } catch(InputMismatchException e) {
+//                
+//            }
+            playerInfo.playerBetAmount(); //this was where it was first made ..
+
+            ////
+//        if (playerInfo.playerBet > playerInfo.money) {
+//            System.out.println("You don't have that much money..");
+//        }
+            //display player's bet amount
+            System.out.println("Player Bet: $" + playerInfo.playerBet);
+
+            //Set dealer bet amount
+            playerInfo.dealerBetAmount();
+            System.out.println("Dealer Bet: $" + playerInfo.dealerBet);
+
+            //Display amount of money if won
+            playerInfo.displayWinAmount();
+            System.out.println("Jackpot: $" + playerInfo.displayWinAmount());
+
+            //Reveal dealers cards
+            System.out.println("Dealer's Cards: " + playingDeck.tmpDealerDeck);
+
+            //Get what the user wants to do..
+            //Determine what the dealer should do based on what the user did..
+            //Determine who won
+            if (playingDeck.valueCountPlayer > playingDeck.valueCountDealer) {
+                playerInfo.Winner();
+                System.out.println("You win!");
+
+                System.out.println("Balance: " + playerInfo.money);
+
+                //
+                playerInfo.winAmount = 0;
+                
+                //Reset card values
+                playingDeck.valueCountPlayer = 0;
+                playingDeck.aceCounterPlayer = 0;
+
+                playingDeck.valueCountDealer = 0;
+                playingDeck.aceCounterDealer = 0;
+
+                //Reset bets
+                playerInfo.playerBet = 0;
+                playerInfo.dealerBet = 0;
+
+                //Clear the decks
+                playingDeck.clearAllDecks();
+
+                System.out.println("Continue? (1) Yes, (2) No");
+
+                int PlayOrQuit = input.nextInt();
+
+                if (PlayOrQuit == 1) {
+                    continue;
+                } else if (PlayOrQuit == 2) {
+                    break;
+                } else {
+                    PlayOrQuit=2; // quit
+                }
+
+            } else if (playingDeck.valueCountDealer > playingDeck.valueCountPlayer) {
+                playerInfo.Loser();
+                System.out.println("You lose!");
+
+                System.out.println("Balance: " + playerInfo.money);
+
+                //
+                playerInfo.winAmount = 0;
+                
+                //Reset card values
+                playingDeck.valueCountPlayer = 0;
+                playingDeck.aceCounterPlayer = 0;
+
+                playingDeck.valueCountDealer = 0;
+                playingDeck.aceCounterDealer = 0;
+
+                //Reset bets
+                playerInfo.playerBet = 0;
+                playerInfo.dealerBet = 0;
+
+                //Clear the decks
+                playingDeck.clearAllDecks();
+
+                System.out.println("Continue? (1) Yes, (2) No");
+                int PlayOrQuit = input.nextInt();
+
+                if (PlayOrQuit == 1) {
+                    continue;
+                } else if (PlayOrQuit == 2) {
+                    break;
+                } else {
+                    PlayOrQuit=2; // quit
+                }
+            }
+
+//            System.out.println(playerInfo.money);
+//            
+//            //Reset card values
+//            
+//            playingDeck.valueCountPlayer=0;
+//            playingDeck.aceCounterPlayer = 0;
+//            
+//            playingDeck.valueCountDealer=0;
+//            playingDeck.aceCounterDealer = 0;
+//            
+//            //Reset bets
+//            playerInfo.playerBet=0;
+//            playerInfo.dealerBet=0;
+//            
+//            //Clear the decks
+//            
+//            playingDeck.clearAllDecks();
+        }
+
+        /*
         //
         playingDeck.createFullDeck();
         playingDeck.shuffleDeck();
@@ -50,10 +229,10 @@ public class Blackjack {
         System.out.println("");
         //Prints the dealers first card and [Hidden] (card not shown until after)
 
-        /*
-        System.out.println("Dealer: " + playingDeck.valueCountDealer);
-        System.out.println(playingDeck.tmpDealerDeck);
-         */
+        
+        //System.out.println("Dealer: " + playingDeck.valueCountDealer);
+        //System.out.println(playingDeck.tmpDealerDeck);
+         
         System.out.println("Dealer's Cards: " + playingDeck.tmpDealerDeck.get(0) + " + " + "[HIDDEN]");
         //System.out.println(playingDeck.tmpDealerDeck); //prints all cards
 
@@ -99,6 +278,10 @@ public class Blackjack {
         }
         
         System.out.println(playerInfo.money);
+        
+        /*
+        
+        
 
 //        //Arrays to hold the cards being used
 //        //String allCards[];
