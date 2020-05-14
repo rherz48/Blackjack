@@ -15,6 +15,15 @@ public class BlackjackUI2 extends javax.swing.JFrame {
     /** Creates new form BlackjackUI2 */
     public BlackjackUI2() {
         initComponents();
+        
+        //
+        Player p = new Player();
+          
+        //Display the player's money when the game starts
+        BalancejTextField.setText(String.valueOf(p.money));
+        
+        
+        
     }
 
     /** This method is called from within the constructor to
@@ -66,7 +75,6 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         BetjLabel.setText("Bet: ");
 
         BalancejTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BalancejTextField.setText("jTextField1");
         BalancejTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BalancejTextFieldActionPerformed(evt);
@@ -74,13 +82,21 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         });
 
         BetjTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BetjTextField.setText("jTextField2");
+        BetjTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BetjTextFieldActionPerformed(evt);
+            }
+        });
 
         JackpotjLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         JackpotjLabel.setText("Jackpot: ");
 
         JackpotjTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        JackpotjTextField.setText("jTextField3");
+        JackpotjTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JackpotjTextFieldActionPerformed(evt);
+            }
+        });
 
         PlaceBetjButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         PlaceBetjButton.setText("Place Bet");
@@ -108,30 +124,27 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BetjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(JackpotjLabel))
-                    .addComponent(BalancejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addComponent(BalancejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(PlaceBetjButton)
                         .addGap(18, 18, 18)
                         .addComponent(HitjButton)
                         .addGap(18, 18, 18)
-                        .addComponent(StayjButton))
-                    .addComponent(JackpotjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(StayjButton)
+                        .addGap(150, 150, 150))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(BetjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(JackpotjLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(JackpotjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,13 +155,16 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                                 .addComponent(StayjButton)
                                 .addComponent(PlaceBetjButton)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BetjLabel)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(BetjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(JackpotjLabel)
-                                .addComponent(JackpotjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 23, Short.MAX_VALUE))
+                            .addComponent(BetjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JackpotjLabel)
+                            .addComponent(JackpotjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel1)
+                        .addGap(0, 29, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,7 +183,18 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
     private void BalancejTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BalancejTextFieldActionPerformed
         // TODO add your handling code here:
+        
+        
+        
     }//GEN-LAST:event_BalancejTextFieldActionPerformed
+
+    private void BetjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BetjTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BetjTextFieldActionPerformed
+
+    private void JackpotjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JackpotjTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JackpotjTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
