@@ -70,24 +70,53 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 //            DisplayedCardImage1jLabel.setText("");
             
 
-                // TRY AND CHANGE IMAGES FROM .jpg TO .png : See if it fixes the problem....
-                //fixed
-            //Add image logic here..
+            //Displays the card images 
             
-            String a = playingDeck.tmpPlayerDeck.get(0).toString();
+            System.out.println("Player's 2 Cards: ");
             
-            //String sGetCard1 = a;
+            //Player Card 1
+            String PlayerCard1 = playingDeck.tmpPlayerDeck.get(0).toString(); //Player's first card
+                        
+            System.out.println(PlayerCard1); //Prints out what the player's first card is 
             
-            System.out.println(a);
+            ImageIcon imagePlayerCard1 = new ImageIcon(getClass().getResource("/cardimages/".concat(PlayerCard1).concat(".png")));
+            DisplayedPlayerCardImage1jLabel.setIcon(imagePlayerCard1);
+            DisplayedPlayerCardImage1jLabel.setText(""); 
             
-            ImageIcon image = new ImageIcon(getClass().getResource("/cardimages/".concat(a).concat(".png")));
+           //Player Card 2
+            String PlayerCard2 = playingDeck.tmpPlayerDeck.get(1).toString(); //Player's second card
             
-            //ImageIcon image = new ImageIcon(getClass().getResource("/cardimages/CLUBS-ACE.png"));
+            System.out.println(PlayerCard2); //Prints out what the player's first card is 
+            
+            ImageIcon imagePlayerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(PlayerCard2).concat(".png")));
+            DisplayedPlayerCardImage2jLabel.setIcon(imagePlayerCard2);
+            DisplayedPlayerCardImage2jLabel.setText(""); 
+            
+            //
+            System.out.println("Dealer's 2 Cards: ");
+            //
+            
+            //Dealer Card 1
+            String DealerCard1 = playingDeck.tmpDealerDeck.get(0).toString(); //Dealers's first card
+            
+            System.out.println(DealerCard1); //Prints out what the player's first card is 
+            
+            ImageIcon imageDealerCard1 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard1).concat(".png")));
+            DisplayedDealerCardImage1jLabel.setIcon(imageDealerCard1);
+            DisplayedDealerCardImage1jLabel.setText(""); 
+            
+            //Dealer Card 2 (First one, so it is not displayed)
+            String DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Dealers's second card (Not needed for displaying yet) Used for printing what it is atm
+            
+            System.out.println(DealerCard2); //Prints out what the player's first card is 
+            
+            //ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
+            ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/images/placeholdercard.png"));
+            FirstDisplayedDealerCardImage2jLabel.setIcon(imageDealerCard2);
+            FirstDisplayedDealerCardImage2jLabel.setText(""); 
             
             
-            //image.addActionListener(this);
-            DisplayedCardImage1jLabel.setIcon(image);
-            DisplayedCardImage1jLabel.setText("");
+            
             
 //            //Add image logic here..
 //            ImageIcon image = new ImageIcon(getClass().getResource("/testingimages/CLUBS-ACE-RESIZED.jpg"));
@@ -112,8 +141,12 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        DisplayedCardImage1jLabel = new javax.swing.JLabel();
+        DisplayedPlayerCardImage1jLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        DisplayedPlayerCardImage2jLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        DisplayedDealerCardImage1jLabel = new javax.swing.JLabel();
+        FirstDisplayedDealerCardImage2jLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         BalancejLabel = new javax.swing.JLabel();
         BetjLabel = new javax.swing.JLabel();
@@ -132,12 +165,27 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 153, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 3, new java.awt.Color(0, 0, 0)));
 
-        DisplayedCardImage1jLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        DisplayedCardImage1jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/placeholdercard.png"))); // NOI18N
-        DisplayedCardImage1jLabel.setText("Card 1");
+        DisplayedPlayerCardImage1jLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DisplayedPlayerCardImage1jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/placeholdercard.png"))); // NOI18N
+        DisplayedPlayerCardImage1jLabel.setText("Card 1");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Player Cards:");
+
+        DisplayedPlayerCardImage2jLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DisplayedPlayerCardImage2jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/placeholdercard.png"))); // NOI18N
+        DisplayedPlayerCardImage2jLabel.setText("Card 1");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Dealer Cards:");
+
+        DisplayedDealerCardImage1jLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DisplayedDealerCardImage1jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/placeholdercard.png"))); // NOI18N
+        DisplayedDealerCardImage1jLabel.setText("Card 1");
+
+        FirstDisplayedDealerCardImage2jLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        FirstDisplayedDealerCardImage2jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/placeholdercard.png"))); // NOI18N
+        FirstDisplayedDealerCardImage2jLabel.setText("Card 2");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -147,17 +195,33 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(DisplayedCardImage1jLabel))
-                .addContainerGap(670, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(DisplayedPlayerCardImage1jLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DisplayedPlayerCardImage2jLabel)))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(DisplayedDealerCardImage1jLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(FirstDisplayedDealerCardImage2jLabel))
+                    .addComponent(jLabel3))
+                .addContainerGap(559, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
-                .addComponent(jLabel2)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addComponent(DisplayedCardImage1jLabel)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DisplayedPlayerCardImage1jLabel)
+                    .addComponent(DisplayedPlayerCardImage2jLabel)
+                    .addComponent(DisplayedDealerCardImage1jLabel)
+                    .addComponent(FirstDisplayedDealerCardImage2jLabel))
+                .addGap(310, 310, 310))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/money_bag_48px.png"))); // NOI18N
@@ -212,7 +276,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 55, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
@@ -226,11 +290,11 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                         .addComponent(BalancejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(PlaceBetjButton)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(HitjButton)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(StayjButton)
-                        .addGap(150, 150, 150))
+                        .addGap(267, 267, 267))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(BetjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -262,7 +326,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel1)))
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -374,7 +438,10 @@ public class BlackjackUI2 extends javax.swing.JFrame {
     private javax.swing.JTextField BalancejTextField;
     private javax.swing.JLabel BetjLabel;
     private javax.swing.JTextField BetjTextField;
-    private javax.swing.JLabel DisplayedCardImage1jLabel;
+    private javax.swing.JLabel DisplayedDealerCardImage1jLabel;
+    private javax.swing.JLabel DisplayedPlayerCardImage1jLabel;
+    private javax.swing.JLabel DisplayedPlayerCardImage2jLabel;
+    private javax.swing.JLabel FirstDisplayedDealerCardImage2jLabel;
     private javax.swing.JButton HitjButton;
     private javax.swing.JLabel JackpotjLabel;
     private javax.swing.JTextField JackpotjTextField;
@@ -382,6 +449,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
     private javax.swing.JButton StayjButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
