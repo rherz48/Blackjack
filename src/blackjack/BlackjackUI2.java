@@ -186,7 +186,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
         DisplayedPlayerCardImage2jLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         DisplayedPlayerCardImage2jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/placeholdercard.png"))); // NOI18N
-        DisplayedPlayerCardImage2jLabel.setText("Card 1");
+        DisplayedPlayerCardImage2jLabel.setText("Card 2");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Dealer Cards:");
