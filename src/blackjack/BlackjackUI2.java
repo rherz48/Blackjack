@@ -159,6 +159,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         DisplayedDealerCardImage1jLabel = new javax.swing.JLabel();
         FirstDisplayedDealerCardImage2jLabel = new javax.swing.JLabel();
+        DisplayedPlayerCardValue = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         BalancejLabel = new javax.swing.JLabel();
         BetjLabel = new javax.swing.JLabel();
@@ -199,25 +200,33 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         FirstDisplayedDealerCardImage2jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/placeholdercard.png"))); // NOI18N
         FirstDisplayedDealerCardImage2jLabel.setText("Card 2");
 
+        DisplayedPlayerCardValue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DisplayedPlayerCardValue.setText("Value");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(DisplayedPlayerCardImage1jLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DisplayedPlayerCardImage2jLabel)))
-                .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(DisplayedDealerCardImage1jLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(FirstDisplayedDealerCardImage2jLabel))
-                    .addComponent(jLabel3))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(DisplayedPlayerCardImage1jLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(DisplayedPlayerCardImage2jLabel)))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(DisplayedDealerCardImage1jLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(FirstDisplayedDealerCardImage2jLabel))
+                            .addComponent(jLabel3)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addComponent(DisplayedPlayerCardValue)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -233,7 +242,9 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                     .addComponent(DisplayedPlayerCardImage2jLabel)
                     .addComponent(DisplayedDealerCardImage1jLabel)
                     .addComponent(FirstDisplayedDealerCardImage2jLabel))
-                .addGap(310, 310, 310))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(DisplayedPlayerCardValue)
+                .addGap(30, 30, 30))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/money_bag_48px.png"))); // NOI18N
@@ -334,11 +345,11 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BalancejLabel)
-                            .addComponent(BalancejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(HitjButton)
                                 .addComponent(StayjButton)
-                                .addComponent(PlaceBetjButton)))
+                                .addComponent(PlaceBetjButton))
+                            .addComponent(BalancejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BetjLabel)
@@ -346,7 +357,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                             .addComponent(JackpotjLabel)
                             .addComponent(JackpotjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -409,6 +420,12 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         playingDeck.dealerCards();
         playingDeck.checkValtmpDealerDeck();
 
+        
+        //Displayed card value for the player
+        DisplayedPlayerCardValue.setText(String.valueOf(playingDeck.valueCountPlayer));
+        
+        
+        
         System.out.println("");
 
         //Print the player's cards and the total value of them
@@ -577,15 +594,21 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         //Add logic...
         
         
-        
+        //if i remove this it fixed one thing but makes more problems..
         playingDeck.valueCountPlayer = 0;
         playingDeck.aceCounterPlayer = 0;
 
         playingDeck.valueCountDealer = 0;
         playingDeck.aceCounterDealer = 0;
+        // end here 
         
         playingDeck.checkValtmpPlayerDeck();
         playingDeck.checkValtmpDealerDeck();
+        
+        //displayed card value for the player
+        DisplayedPlayerCardValue.setText(String.valueOf(playingDeck.valueCountPlayer));
+        
+        
         
         if (playingDeck.valueCountPlayer > 21 && playerInfo.money > 0) {
             System.out.println("Bust");
@@ -715,9 +738,12 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
 
 
+            //here....
+            
+        } else if (playingDeck.valueCountPlayer <= 21 && playerInfo.money > 0) { //added a = to <= (check if working now..)
             
             
-        } else if (playingDeck.valueCountPlayer < 21 && playerInfo.money > 0) {
+            
             System.out.println("valueCountPlayer is < 21");
             
             System.out.println("Player:" + playingDeck.valueCountPlayer);
@@ -729,12 +755,12 @@ public class BlackjackUI2 extends javax.swing.JFrame {
             
             System.out.println("valid");
             
-            
-            playingDeck.valueCountPlayer = 0;
-            playingDeck.aceCounterPlayer = 0;
-
-            playingDeck.valueCountDealer = 0;
-            playingDeck.aceCounterDealer = 0;
+            //removed..
+//            playingDeck.valueCountPlayer = 0;
+//            playingDeck.aceCounterPlayer = 0;
+//
+//            playingDeck.valueCountDealer = 0;
+//            playingDeck.aceCounterDealer = 0;
             
             
             
@@ -760,10 +786,60 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 //            
 //            //Player draws two cards..
             
-playingDeck.checkValtmpPlayerDeck();
-            playingDeck.checkValtmpDealerDeck();
+
+//removed
+//playingDeck.checkValtmpPlayerDeck();
+//            playingDeck.checkValtmpDealerDeck();
+
+
 playingDeck.playerCards();
+
+//// Display the new text for the player's value count for the cards
+//            DisplayedPlayerCardValue.setText(String.valueOf(playingDeck.valueCountPlayer));
+//            //
+
+playingDeck.printDecks();
+
+
+            playingDeck.valueCountPlayer = 0;
+            playingDeck.aceCounterPlayer = 0;
             
+            playingDeck.checkValtmpPlayerDeck();
+            
+            // Display the new text for the player's value count for the cards
+            DisplayedPlayerCardValue.setText(String.valueOf(playingDeck.valueCountPlayer));
+            //
+            
+            
+            System.out.println(playerInfo.money);
+            
+            
+            //work on this tomorrow.. may 24th today, may 25th tomorrow
+            
+            
+            if (playingDeck.valueCountPlayer > 21) {
+                
+                System.out.println("Over 21 when hitting"); //
+                
+                
+                // Display the new text for the player's value count for the cards
+            DisplayedPlayerCardValue.setText(String.valueOf(playingDeck.valueCountPlayer));
+            //
+            
+            //add a reset for value counts here......
+                System.out.println("fixed???? working ???? value count player over 21");
+                System.out.println("fixed???? working ???? value count player over 21");
+                System.out.println("fixed???? working ???? value count player over 21");
+                System.out.println("fixed???? working ???? value count player over 21");
+                System.out.println("fixed???? working ???? value count player over 21");
+                System.out.println("fixed???? working ???? value count player over 21");
+                System.out.println("fixed???? working ???? value count player over 21");
+                System.out.println("fixed???? working ???? value count player over 21");
+                System.out.println("fixed???? working ???? value count player over 21");
+            }
+
+
+
 //            playingDeck.checkValtmpPlayerDeck();
 //            playingDeck.checkValtmpDealerDeck();
 //            playingDeck.playerCards();
@@ -782,13 +858,17 @@ playingDeck.playerCards();
             
             //num 1....
 //            playerInfo.money-=num1;
-            System.out.println(playerInfo.money);
+
+//            System.out.println(playerInfo.money);
             
-            BalancejTextField.setText(String.valueOf(playerInfo.money)); // update the players money displayed
+
+            //BalancejTextField.setText(String.valueOf(playerInfo.money)); // update the players money displayed
             
             
             ////
             
+//Add a check to see if the value of the player's cards is over 21
+
             
             
             
@@ -800,6 +880,8 @@ playingDeck.playerCards();
             //HitStayIsVisibleFalse();
             
             //System.exit(0);
+//        } else {
+//            System.out.println("Something else happened...");
         }
     }//GEN-LAST:event_HitjButtonActionPerformed
 
@@ -1321,6 +1403,7 @@ playingDeck.playerCards();
     private javax.swing.JLabel DisplayedDealerCardImage1jLabel;
     private javax.swing.JLabel DisplayedPlayerCardImage1jLabel;
     private javax.swing.JLabel DisplayedPlayerCardImage2jLabel;
+    private javax.swing.JLabel DisplayedPlayerCardValue;
     private javax.swing.JLabel FirstDisplayedDealerCardImage2jLabel;
     private javax.swing.JButton HitjButton;
     private javax.swing.JLabel JackpotjLabel;
