@@ -152,6 +152,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         DisplayedDealerCardImage1jLabel = new javax.swing.JLabel();
         FirstDisplayedDealerCardImage2jLabel = new javax.swing.JLabel();
         DisplayedPlayerCardValue = new javax.swing.JLabel();
+        DisplayedDealerCardValue = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         BalancejLabel = new javax.swing.JLabel();
         BetjLabel = new javax.swing.JLabel();
@@ -195,6 +196,9 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         DisplayedPlayerCardValue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         DisplayedPlayerCardValue.setText("Value");
 
+        DisplayedDealerCardValue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DisplayedDealerCardValue.setText("Value");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -211,11 +215,13 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                                 .addComponent(DisplayedPlayerCardImage2jLabel)))
                         .addGap(31, 31, 31)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(DisplayedDealerCardImage1jLabel)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(DisplayedDealerCardValue)
+                                    .addComponent(DisplayedDealerCardImage1jLabel))
                                 .addGap(18, 18, 18)
-                                .addComponent(FirstDisplayedDealerCardImage2jLabel))
-                            .addComponent(jLabel3)))
+                                .addComponent(FirstDisplayedDealerCardImage2jLabel))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(212, 212, 212)
                         .addComponent(DisplayedPlayerCardValue)))
@@ -235,7 +241,9 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                     .addComponent(DisplayedDealerCardImage1jLabel)
                     .addComponent(FirstDisplayedDealerCardImage2jLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(DisplayedPlayerCardValue)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DisplayedPlayerCardValue)
+                    .addComponent(DisplayedDealerCardValue))
                 .addGap(30, 30, 30))
         );
 
@@ -385,9 +393,155 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
         //Player p = new Player();
         //double num1; //added at top ............
+//        try {
+//
+//            playingDeck.valueCountPlayer = 0;
+//            playingDeck.valueCountDealer = 0;
+//
+//            playingDeck.aceCounterPlayer = 0;
+//            playingDeck.aceCounterDealer = 0;
+//
+//            playingDeck.clearAllDecks();
+//
+//            playingDeck.createFullDeck();
+//            playingDeck.shuffleDeck();
+//
+//            //Player draws two cards..
+//            playingDeck.playerCards();
+//            playingDeck.playerCards();
+//
+//            playingDeck.checkValtmpPlayerDeck();
+//
+//            //Dealer draws two cards.. 
+//            playingDeck.dealerCards();
+//            playingDeck.dealerCards();
+//            playingDeck.checkValtmpDealerDeck();
+//
+//            //Displayed card value for the player
+//            DisplayedPlayerCardValue.setText(String.valueOf(playingDeck.valueCountPlayer));
+//
+//            //Reset any existing text displayed if a round has been played
+//            DisplayedDealerCardValue.setText("Value");
+//            //
+//            
+//            
+//            
+//            
+//            System.out.println("");
+//
+//            //Print the player's cards and the total value of them
+//            System.out.println("Value: " + playingDeck.valueCountPlayer);
+//            System.out.println("Your Cards: " + playingDeck.tmpPlayerDeck);
+//
+//            System.out.println("");
+//
+//            //Prints the dealers first card and [Hidden] (card not shown until after)
+//            System.out.println("Dealer's Cards: " + playingDeck.tmpDealerDeck.get(0) + " + " + "[HIDDEN]");
+//
+//            System.out.println();
+//
+//            System.out.println("Player's 2 Cards: ");
+//
+//            //Player Card 1
+//            String PlayerCard1 = playingDeck.tmpPlayerDeck.get(0).toString(); //Player's first card
+//
+//            System.out.println(PlayerCard1); //Prints out what the player's first card is 
+//
+//            ImageIcon imagePlayerCard1 = new ImageIcon(getClass().getResource("/cardimages/".concat(PlayerCard1).concat(".png")));
+//            DisplayedPlayerCardImage1jLabel.setIcon(imagePlayerCard1);
+//            DisplayedPlayerCardImage1jLabel.setText("");
+//
+//            //Player Card 2
+//            String PlayerCard2 = playingDeck.tmpPlayerDeck.get(1).toString(); //Player's second card
+//
+//            System.out.println(PlayerCard2); //Prints out what the player's first card is 
+//
+//            ImageIcon imagePlayerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(PlayerCard2).concat(".png")));
+//            DisplayedPlayerCardImage2jLabel.setIcon(imagePlayerCard2);
+//            DisplayedPlayerCardImage2jLabel.setText("");
+//
+//            //
+//            System.out.println("Dealer's 2 Cards: ");
+//            //
+//
+//            //Dealer Card 1
+//            String DealerCard1 = playingDeck.tmpDealerDeck.get(0).toString(); //Dealers's first card
+//
+//            System.out.println(DealerCard1); //Prints out what the player's first card is 
+//
+//            ImageIcon imageDealerCard1 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard1).concat(".png")));
+//            DisplayedDealerCardImage1jLabel.setIcon(imageDealerCard1);
+//            DisplayedDealerCardImage1jLabel.setText("");
+//
+//            //Dealer Card 2 (First one, so it is not displayed)
+//            String DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Dealers's second card (Not needed for displaying yet) Used for printing what it is atm
+//
+//            System.out.println(DealerCard2); //Prints out what the player's first card is 
+//
+//            //ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
+//            ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/images/placeholdercard.png"));
+//            FirstDisplayedDealerCardImage2jLabel.setIcon(imageDealerCard2);
+//            FirstDisplayedDealerCardImage2jLabel.setText("");
+//        } catch (NumberFormatException e) {
+//
+//        } catch (NullPointerException np) {
+//            
+//            System.out.println("Null pointer 1");
+//            playingDeck.printDecks();
+//            
+//            playingDeck.clearAllDecks();
+//            
+//            playingDeck.valueCountPlayer = 0;
+//            playingDeck.valueCountDealer = 0;
+//
+//            playingDeck.aceCounterPlayer = 0;
+//            playingDeck.aceCounterDealer = 0;
+//            
+//            
+//            playerInfo.money+=3000;
+////            if (playingDeck.tmpPlayerDeck.size() < 2) {
+////                playingDeck.
+////            }
+//        }
+
         try {
 
-            playingDeck.valueCountPlayer = 0;
+            num1 = Double.parseDouble(BetjTextField.getText());
+
+//            //Round the bet to 2 decimal places 
+//            double num2 = Math.round(num1 * 100.00) / 100.00;
+//            
+//            num1 = num2;
+            
+            
+            if (num1 <= playerInfo.money) { // Check if the bet is <= the player's money
+
+                            //Round the bet to 2 decimal places 
+            double num2 = Math.round(num1 * 100.00) / 100.00;
+            
+            num1 = num2;
+                
+                
+                // ..
+                playerInfo.playerBet = num1; //set the player bet to num1
+
+                playerInfo.money -= num1; // take the player's bet
+
+                System.out.println(playerInfo.money); //print out the player's new balance
+
+                playerInfo.dealerBet = playerInfo.playerBet * 2;
+
+                BalancejTextField.setText(String.valueOf(playerInfo.money)); // update the players money displayed
+                JackpotjTextField.setText(String.valueOf(playerInfo.dealerBet)); // set the jackpot
+
+                // ..
+                System.out.println("Valid bet");
+
+                // Betting is disabled 
+                //PlaceBetjButton.setVisible(false); //Change the visibility to false so no more bets can be placed
+                // or..
+
+           playingDeck.valueCountPlayer = 0;
             playingDeck.valueCountDealer = 0;
 
             playingDeck.aceCounterPlayer = 0;
@@ -412,6 +566,13 @@ public class BlackjackUI2 extends javax.swing.JFrame {
             //Displayed card value for the player
             DisplayedPlayerCardValue.setText(String.valueOf(playingDeck.valueCountPlayer));
 
+            //Reset any existing text displayed if a round has been played
+            DisplayedDealerCardValue.setText("Value");
+            //
+            
+            
+            
+            
             System.out.println("");
 
             //Print the player's cards and the total value of them
@@ -467,34 +628,13 @@ public class BlackjackUI2 extends javax.swing.JFrame {
             ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/images/placeholdercard.png"));
             FirstDisplayedDealerCardImage2jLabel.setIcon(imageDealerCard2);
             FirstDisplayedDealerCardImage2jLabel.setText("");
-        } catch (NumberFormatException e) {
 
-        }
 
-        try {
 
-            num1 = Double.parseDouble(BetjTextField.getText());
 
-            if (num1 <= playerInfo.money) { // Check if the bet is <= the player's money
 
-                // ..
-                playerInfo.playerBet = num1; //set the player bet to num1
 
-                playerInfo.money -= num1; // take the player's bet
 
-                System.out.println(playerInfo.money); //print out the player's new balance
-
-                playerInfo.dealerBet = playerInfo.playerBet * 2;
-
-                BalancejTextField.setText(String.valueOf(playerInfo.money)); // update the players money displayed
-                JackpotjTextField.setText(String.valueOf(playerInfo.dealerBet)); // set the jackpot
-
-                // ..
-                System.out.println("Valid bet");
-
-                // Betting is disabled 
-                //PlaceBetjButton.setVisible(false); //Change the visibility to false so no more bets can be placed
-                // or..
                 PlaceBetjButton.setEnabled(false);
 
                 // Hit and Stay are now enabled...
@@ -533,12 +673,25 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         } catch (NumberFormatException e) { //Number format exception
             System.out.println("NumberFormatException");
         }
-
     }//GEN-LAST:event_PlaceBetjButtonActionPerformed
 
     private void HitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HitjButtonActionPerformed
         // TODO add your handling code here:
 
+        //Testing: Set Player Card 1 the last element in the array
+        
+            
+            
+//            int test = playingDeck.tmpPlayerDeck.size()-1;
+//            
+//            String newPlayerCardAdded = playingDeck.tmpPlayerDeck.get(test).toString(); //Player's first card
+//
+//            System.out.println(newPlayerCardAdded); //Prints out what the player's first card is 
+//
+//            ImageIcon imagePlayerCard1 = new ImageIcon(getClass().getResource("/cardimages/".concat(newPlayerCardAdded).concat(".png")));
+//            DisplayedPlayerCardImage1jLabel.setIcon(imagePlayerCard1);
+//            DisplayedPlayerCardImage1jLabel.setText("");
+        
         //Fix.........
 //        Deck d = new Deck();
 //        Player p = new Player();
@@ -576,7 +729,21 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         //displayed card value for the player
         DisplayedPlayerCardValue.setText(String.valueOf(playingDeck.valueCountPlayer));
 
-        if (playingDeck.valueCountPlayer > 21 && playerInfo.money > 0) {
+        if (playingDeck.valueCountPlayer > 21) { //&& playerInfo.money > 0) {
+
+            //Dealer Card 2 (Dislayed)
+            String DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Get what the second card is 
+
+            System.out.println(DealerCard2); //Prints out what the player's first card is 
+
+            ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
+            FirstDisplayedDealerCardImage2jLabel.setIcon(imageDealerCard2);
+            FirstDisplayedDealerCardImage2jLabel.setText("");
+
+            //Update displayed card value for the dealer
+            DisplayedDealerCardValue.setText(String.valueOf(playingDeck.valueCountDealer));
+            //
+
             System.out.println("Bust");
             System.out.println("valueCountPlayer is > 21");
 
@@ -679,7 +846,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 //                System.exit(0);
 //            }
             //here....
-        } else if (playingDeck.valueCountPlayer <= 21 && playerInfo.money > 0) { //added a = to <= (check if working now..)
+        } else if (playingDeck.valueCountPlayer <= 21) { //&& playerInfo.money > 0) { //added a = to <= (check if working now..)
 
             System.out.println("valueCountPlayer is < 21");
 
@@ -732,9 +899,51 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
             System.out.println(playerInfo.money);
 
+            
+            //Set the third card to the last card added
+            //Currently the first card in deck is being set to the last card
+            int test = playingDeck.tmpPlayerDeck.size()-1;
+            
+            String newPlayerCardAdded = playingDeck.tmpPlayerDeck.get(test).toString(); //Player's first card
+
+            System.out.println(newPlayerCardAdded); //Prints out what the player's first card is 
+
+            ImageIcon imagePlayerCard1 = new ImageIcon(getClass().getResource("/cardimages/".concat(newPlayerCardAdded).concat(".png")));
+            DisplayedPlayerCardImage1jLabel.setIcon(imagePlayerCard1);
+            DisplayedPlayerCardImage1jLabel.setText("");
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             //work on this tomorrow.. may 24th today, may 25th tomorrow
             //Check if the player has bust from the hit
             if (playingDeck.valueCountPlayer > 21) {
+
+                //Dealer Card 2 (Dislayed)
+                String DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Get what the second card is 
+
+                System.out.println(DealerCard2); //Prints out what the player's first card is 
+
+                ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
+                FirstDisplayedDealerCardImage2jLabel.setIcon(imageDealerCard2);
+                FirstDisplayedDealerCardImage2jLabel.setText("");
+                //
+
+                //Update displayed card value for the dealer
+                DisplayedDealerCardValue.setText(String.valueOf(playingDeck.valueCountDealer));
+                //
 
                 System.out.println("Over 21 when hitting"); //
 
@@ -742,17 +951,16 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                 DisplayedPlayerCardValue.setText(String.valueOf(playingDeck.valueCountPlayer));
                 //
 
-                //add a reset for value counts here......
-                System.out.println("fixed???? working ???? value count player over 21");
-                System.out.println("fixed???? working ???? value count player over 21");
-                System.out.println("fixed???? working ???? value count player over 21");
-                System.out.println("fixed???? working ???? value count player over 21");
-                System.out.println("fixed???? working ???? value count player over 21");
-                System.out.println("fixed???? working ???? value count player over 21");
-                System.out.println("fixed???? working ???? value count player over 21");
-                System.out.println("fixed???? working ???? value count player over 21");
-                System.out.println("fixed???? working ???? value count player over 21");
-
+//                //add a reset for value counts here......
+//                System.out.println("fixed???? working ???? value count player over 21");
+//                System.out.println("fixed???? working ???? value count player over 21");
+//                System.out.println("fixed???? working ???? value count player over 21");
+//                System.out.println("fixed???? working ???? value count player over 21");
+//                System.out.println("fixed???? working ???? value count player over 21");
+//                System.out.println("fixed???? working ???? value count player over 21");
+//                System.out.println("fixed???? working ???? value count player over 21");
+//                System.out.println("fixed???? working ???? value count player over 21");
+//                System.out.println("fixed???? working ???? value count player over 21");
                 //Add what to do when the player has bust..
                 System.out.println("Bust when adding a card");
                 System.out.println("valueCountPlayer is > 21");
@@ -819,6 +1027,24 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
         HitjButton.setEnabled(false);
 
+        //Display dealer's second card
+//                    //Dealer Card 1
+//            String DealerCard1 = playingDeck.tmpDealerDeck.get(0).toString(); //Dealers's first card
+//
+//            System.out.println(DealerCard1); //Prints out what the player's first card is 
+//
+//            ImageIcon imageDealerCard1 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard1).concat(".png")));
+//            DisplayedDealerCardImage1jLabel.setIcon(imageDealerCard1);
+//            DisplayedDealerCardImage1jLabel.setText("");
+        //Dealer Card 2 (Dislayed)
+        String DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Get what the second card is 
+
+        System.out.println(DealerCard2); //Prints out what the player's first card is 
+
+        ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
+        FirstDisplayedDealerCardImage2jLabel.setIcon(imageDealerCard2);
+        FirstDisplayedDealerCardImage2jLabel.setText("");
+
 //        playingDeck.valueCountPlayer = 0;
 //        playingDeck.aceCounterPlayer = 0;
 //
@@ -872,8 +1098,8 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
             System.out.println("Dealer won by having cards = player's");
         } //        if (playingDeck.valueCountPlayer >= playingDeck.valueCountDealer || playingDeck.)
-        else if (playingDeck.valueCountDealer > playingDeck.valueCountPlayer || playingDeck.valueCountDealer >= playingDeck.valueCountPlayer) { //added else to if
-            try {
+        else if (playingDeck.valueCountDealer > playingDeck.valueCountPlayer) { //|| playingDeck.valueCountDealer >= playingDeck.valueCountPlayer) { //added else to if
+//            try {
                 //playerInfo.money-=num1; // if you do this it will do it twice because it's already done at the top
 
                 ///////////
@@ -889,8 +1115,15 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 //                System.out.println("Player Card Value: " + playingDeck.valueCountPlayer);
 //                System.out.println("Dealer Card Value: " + playingDeck.valueCountDealer);
                 //playingDeck.getCardCounts(); // get the card counts
-
                 ////////////////
+                
+                //Update displayed card value for the dealer
+                DisplayedDealerCardValue.setText(String.valueOf(playingDeck.valueCountDealer));
+                //
+                
+                
+                
+                
                 //Set balance again..
                 BalancejTextField.setText(String.valueOf(playerInfo.money));
 
@@ -931,9 +1164,9 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 //                playingDeck.playerCards();
 //                playingDeck.dealerCards();
 //                playingDeck.dealerCards();
-            } catch (NumberFormatException e) {
-                System.out.println("NumberFormatException: Stay");
-            }
+//            } catch (NumberFormatException e) {
+//                System.out.println("NumberFormatException: Stay");
+//            }
         } ///ddddd
         else if (playingDeck.valueCountPlayer > playingDeck.valueCountDealer) { //&& playerInfo.money > 0) {
 
@@ -942,6 +1175,10 @@ public class BlackjackUI2 extends javax.swing.JFrame {
             ////////////////////////////////////////////////
             //add an else if maybe to this...............???????
             do {
+
+                //Update displayed card value for the dealer
+                DisplayedDealerCardValue.setText(String.valueOf(playingDeck.valueCountDealer));
+                //
 
 //                playingDeck.valueCountPlayer = 0;
 //                playingDeck.aceCounterPlayer = 0;
@@ -957,8 +1194,17 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
                 System.out.println("Dealer card added....");
 
+                //Update displayed card value for the dealer
+                DisplayedDealerCardValue.setText(String.valueOf(playingDeck.valueCountDealer));
+                //
+                
+                
                 if (playingDeck.valueCountDealer > 21) {
                     System.out.println("DEALER HAS BUST");
+
+                    //Update displayed card value for the dealer
+                    DisplayedDealerCardValue.setText(String.valueOf(playingDeck.valueCountDealer));
+                    //
 
                     playerInfo.money += num1 * 2;
 
@@ -986,6 +1232,10 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                     playingDeck.clearAllDecks();
 
                 } else if (playingDeck.valueCountDealer == playingDeck.valueCountPlayer) {
+
+                    //Update displayed card value for the dealer
+                    DisplayedDealerCardValue.setText(String.valueOf(playingDeck.valueCountDealer));
+                    //
 
                     System.out.println("Dealer wins by having the same value as the player");
                     //Set balance again..
@@ -1246,6 +1496,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
     private javax.swing.JLabel BetjLabel;
     private javax.swing.JTextField BetjTextField;
     private javax.swing.JLabel DisplayedDealerCardImage1jLabel;
+    private javax.swing.JLabel DisplayedDealerCardValue;
     private javax.swing.JLabel DisplayedPlayerCardImage1jLabel;
     private javax.swing.JLabel DisplayedPlayerCardImage2jLabel;
     private javax.swing.JLabel DisplayedPlayerCardValue;
