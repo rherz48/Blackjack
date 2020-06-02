@@ -16,10 +16,20 @@ public class BlackjackUI2 extends javax.swing.JFrame {
     Deck playingDeck = new Deck();
     Player playerInfo = new Player();
 
-    boolean betHasBeenPlaced = false;
+    //boolean betHasBeenPlaced = false;
 
     double num1;
-
+    double num2;
+    double num3;
+    
+    int test;
+    
+    String newPlayerCardAdded;
+    
+    ImageIcon imagePlayerCard1;
+    
+    String DealerCard2;
+    ImageIcon imageDealerCard2;
     /**
      * Creates new form BlackjackUI2
      */
@@ -548,10 +558,12 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                 try {
 
                     //Round the bet to 2 decimal places 
-                    double num2 = Math.round(num1 * 100.00) / 100.00;
+                    num2 = Math.round(num1 * 100.00) / 100.00;
 
-                    num1 = num2;
+                    //num1 = num2;
 
+                    num1=num2;
+                    
                     DisplayedPlayerCardImage3jLabel.setVisible(false);
 
                     // ..
@@ -648,12 +660,12 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                     DisplayedDealerCardImage1jLabel.setText("");
 
                     //Dealer Card 2 (First one, so it is not displayed)
-                    String DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Dealers's second card (Not needed for displaying yet) Used for printing what it is atm
+                    DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Dealers's second card (Not needed for displaying yet) Used for printing what it is atm
 
                     System.out.println(DealerCard2); //Prints out what the player's first card is 
 
                     //ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
-                    ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/images/placeholdercard.png"));
+                    imageDealerCard2 = new ImageIcon(getClass().getResource("/images/placeholdercard.png"));
                     FirstDisplayedDealerCardImage2jLabel.setIcon(imageDealerCard2);
                     FirstDisplayedDealerCardImage2jLabel.setText("");
 
@@ -664,8 +676,56 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                     StayjButton.setEnabled(true);
 
                 } catch (NullPointerException npe) {
+//                    playerInfo.money+=10000;
+//                    System.out.println("Click bet again");
+//                    
+//                    //Player cards
+//                    
+//                    //Player card 1
+//                    ImageIcon imagePlayerCard1 = new ImageIcon(getClass().getResource("/images/placeholdercard.png"));
+//                    DisplayedPlayerCardImage1jLabel.setIcon(imagePlayerCard1);
+//                    DisplayedPlayerCardImage1jLabel.setText("");
+//                    
+//                    //Player card 2
+//                    ImageIcon imagePlayerCard2 = new ImageIcon(getClass().getResource("/images/placeholdercard.png"));
+//                    DisplayedPlayerCardImage1jLabel.setIcon(imagePlayerCard2);
+//                    DisplayedPlayerCardImage1jLabel.setText("");
+//                    
+//                    //Player card 3 
+//                    DisplayedPlayerCardImage3jLabel.setVisible(false);
+//                    
+//                    // Dealer cards 
+//                    
+//                    //Dealer card 1
+//                    ImageIcon imageDealerCard1 = new ImageIcon(getClass().getResource("/images/placeholdercard.png"));
+//                    DisplayedDealerCardImage1jLabel.setIcon(imageDealerCard1);
+//                    DisplayedDealerCardImage1jLabel.setText("");
+//                    
+//                    //Dealer card 2
+//                    ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/images/placeholdercard.png"));
+//                    FirstDisplayedDealerCardImage2jLabel.setIcon(imageDealerCard2);
+//                    FirstDisplayedDealerCardImage2jLabel.setText("");
                     
+                    
+                    //playingDeck.clearAllDecks();
+                    
+                    //Check if this works
+                    
+                    System.out.println("Old: " + num1);
+                    
+                    num3=num1;
 
+                    //num1+=num3;
+                    
+                    playerInfo.money+=num3;
+                    
+                    //System.out.println("New: " + num1);
+                    System.out.println("NullPointerException");
+                    System.out.println("Updated player balance: " + playerInfo.money);
+                    
+                    System.out.println(playerInfo.money);
+                    BalancejTextField.setText(String.valueOf(playerInfo.money));
+                    System.out.println("Set balance to what it was before..");
                 }
 //                //Set Hit and Stay to visible
 //                HitjButton.setVisible(false); // work with this............
@@ -754,11 +814,11 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         if (playingDeck.valueCountPlayer > 21) { //&& playerInfo.money > 0) {
 
             //Dealer Card 2 (Dislayed)
-            String DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Get what the second card is 
+            DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Get what the second card is 
 
             System.out.println(DealerCard2); //Prints out what the player's first card is 
 
-            ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
+            imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
             FirstDisplayedDealerCardImage2jLabel.setIcon(imageDealerCard2);
             FirstDisplayedDealerCardImage2jLabel.setText("");
 
@@ -903,7 +963,13 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 //removed
 //playingDeck.checkValtmpPlayerDeck();
 //            playingDeck.checkValtmpDealerDeck();
-            playingDeck.playerCards();
+
+            try {
+                playingDeck.playerCards();
+            } catch (NullPointerException npe) {
+
+            }
+//            playingDeck.playerCards();
 
 //// Display the new text for the player's value count for the cards
 //            DisplayedPlayerCardValue.setText(String.valueOf(playingDeck.valueCountPlayer));
@@ -929,13 +995,13 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
                 
                 
-                int test = playingDeck.tmpPlayerDeck.size() - 1;
+                test = playingDeck.tmpPlayerDeck.size() - 1;
 
-                String newPlayerCardAdded = playingDeck.tmpPlayerDeck.get(test).toString(); //Player's first card
+                newPlayerCardAdded = playingDeck.tmpPlayerDeck.get(test).toString(); //Player's first card
 
                 System.out.println(newPlayerCardAdded); //Prints out what the player's first card is 
 
-                ImageIcon imagePlayerCard1 = new ImageIcon(getClass().getResource("/cardimages/".concat(newPlayerCardAdded).concat(".png")));
+                imagePlayerCard1 = new ImageIcon(getClass().getResource("/cardimages/".concat(newPlayerCardAdded).concat(".png")));
                 DisplayedPlayerCardImage3jLabel.setIcon(imagePlayerCard1);
                 DisplayedPlayerCardImage3jLabel.setText("");
 
@@ -951,6 +1017,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
             
             //Possible fix ^^
             playingDeck.valueCountPlayer = 0;
+            playingDeck.aceCounterPlayer = 0;
             playingDeck.checkValtmpPlayerDeck();
             
             
@@ -959,11 +1026,11 @@ public class BlackjackUI2 extends javax.swing.JFrame {
             if (playingDeck.valueCountPlayer > 21) {
 
                 //Dealer Card 2 (Dislayed)
-                String DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Get what the second card is 
+                DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Get what the second card is 
 
                 System.out.println(DealerCard2); //Prints out what the player's first card is 
 
-                ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
+                imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
                 FirstDisplayedDealerCardImage2jLabel.setIcon(imageDealerCard2);
                 FirstDisplayedDealerCardImage2jLabel.setText("");
                 //
@@ -1014,6 +1081,8 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
                 playingDeck.clearAllDecks();
 
+            } else if (playingDeck.valueCountPlayer < 21) {
+                System.out.println("abc");
             }
 
 //            playingDeck.checkValtmpPlayerDeck();
@@ -1064,11 +1133,11 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 //            DisplayedDealerCardImage1jLabel.setIcon(imageDealerCard1);
 //            DisplayedDealerCardImage1jLabel.setText("");
         //Dealer Card 2 (Dislayed)
-        String DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Get what the second card is 
+        DealerCard2 = playingDeck.tmpDealerDeck.get(1).toString(); //Get what the second card is 
 
         System.out.println(DealerCard2); //Prints out what the player's first card is 
 
-        ImageIcon imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
+        imageDealerCard2 = new ImageIcon(getClass().getResource("/cardimages/".concat(DealerCard2).concat(".png")));
         FirstDisplayedDealerCardImage2jLabel.setIcon(imageDealerCard2);
         FirstDisplayedDealerCardImage2jLabel.setText("");
 
