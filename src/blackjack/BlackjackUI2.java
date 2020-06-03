@@ -51,6 +51,11 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         //Displays the player's money when the game starts
         BalancejTextField.setText(String.valueOf(playerInfo.money));
 
+        //ImageIcon img = new ImageIcon("\cardimages");
+        
+        //Set the image icons for the game
+        ImageIcon gameicon = new ImageIcon(getClass().getResource("/images/chip_48px.png"));
+        this.setIconImage(gameicon.getImage());
         //Create the game ... 
 //        Deck playingDeck = new Deck();
 //        Player playerInfo = new Player();
@@ -179,6 +184,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
         ExitApplicationjLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ryan's Blackjack Game");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
 
@@ -633,7 +639,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
                     System.out.println(PlayerCard1); //Prints out what the player's first card is 
 
-                    ImageIcon imagePlayerCard1 = new ImageIcon(getClass().getResource("/cardimages/".concat(PlayerCard1).concat(".png")));
+                    imagePlayerCard1 = new ImageIcon(getClass().getResource("/cardimages/".concat(PlayerCard1).concat(".png")));
                     DisplayedPlayerCardImage1jLabel.setIcon(imagePlayerCard1);
                     DisplayedPlayerCardImage1jLabel.setText("");
 
@@ -1370,39 +1376,39 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
             //playingDeck.printDecks();/// .... Print the decks
             // check if PLAYER WINS //////////////////////
-            if (playingDeck.valueCountPlayer > playingDeck.valueCountDealer) {
-                System.out.println("Logic is working ??????");
-
-                System.out.println("Player wins!! playingDeck.valueCountPlayer > playingDeck.valueCountDealer");
-                /////////////// check if
-
-                playerInfo.money += num1 * 2;
-
-                //Set balance again..
-                BalancejTextField.setText(String.valueOf(playerInfo.money));
-
-                //Set the Bet to cleared
-                BetjTextField.setText("");
-
-                //Clear jackpot
-                JackpotjTextField.setText("");
-
-                //Wait for new bet
-                PlaceBetjButton.setEnabled(true);
-                HitjButton.setEnabled(false);
-                StayjButton.setEnabled(false);
-
-                // ..
-                playingDeck.valueCountPlayer = 0;
-                playingDeck.aceCounterPlayer = 0;
-
-                playingDeck.valueCountDealer = 0;
-                playingDeck.aceCounterDealer = 0;
-
-                playingDeck.clearAllDecks();
-                //////
-
-                System.out.println("player > dealer or dealer bust");
+//            if (playingDeck.valueCountPlayer > playingDeck.valueCountDealer) {
+//                System.out.println("Logic is working ??????");
+//
+//                System.out.println("Player wins!! playingDeck.valueCountPlayer > playingDeck.valueCountDealer");
+//                /////////////// check if
+//
+//                playerInfo.money += num1 * 2;
+//
+//                //Set balance again..
+//                BalancejTextField.setText(String.valueOf(playerInfo.money));
+//
+//                //Set the Bet to cleared
+//                BetjTextField.setText("");
+//
+//                //Clear jackpot
+//                JackpotjTextField.setText("");
+//
+//                //Wait for new bet
+//                PlaceBetjButton.setEnabled(true);
+//                HitjButton.setEnabled(false);
+//                StayjButton.setEnabled(false);
+//
+//                // ..
+//                playingDeck.valueCountPlayer = 0;
+//                playingDeck.aceCounterPlayer = 0;
+//
+//                playingDeck.valueCountDealer = 0;
+//                playingDeck.aceCounterDealer = 0;
+//
+//                playingDeck.clearAllDecks();
+//                //////
+//
+//                System.out.println("player > dealer or dealer bust");
 
                 ////////////
 //                playingDeck.clearAllDecks();
@@ -1414,8 +1420,8 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 //                playingDeck.dealerCards();
 //                playingDeck.dealerCards();
                 ////////
-            } //added else if .......
-            else if (playingDeck.valueCountDealer >= playingDeck.valueCountPlayer) {
+            //} //added else if .......
+             if (playingDeck.valueCountDealer >= playingDeck.valueCountPlayer) {
                 try {
                     //playerInfo.money-=num1; // if you do this it will do it twice because it's already done at the top
 
