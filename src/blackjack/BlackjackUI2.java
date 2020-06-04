@@ -1094,7 +1094,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
                 playingDeck.clearAllDecks();
 
             } else if (playingDeck.valueCountPlayer < 21) {
-                System.out.println("abc");
+                System.out.println("Less than 21");
             }
 
 //            playingDeck.checkValtmpPlayerDeck();
