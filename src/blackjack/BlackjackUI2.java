@@ -550,7 +550,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 //            double num2 = Math.round(num1 * 100.00) / 100.00;
 //            
 //            num1 = num2;
-            if (num1 <= playerInfo.money) { // Check if the bet is <= the player's money
+            if (num1 <= playerInfo.money && num1>0) { // Check if the bet is <= the player's money
 
                 
                 playingDeck.valueCountPlayer = 0;
@@ -758,8 +758,14 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 //                
 //                
             } else if (num1 > playerInfo.money) {
-                System.out.println("Kicked out of the casino!");
-                System.exit(0); // Exit application
+                System.out.println("Balance is less than what is trying to be bet");
+                throw new NumberFormatException("");
+                //System.out.println("Kicked out of the casino!");
+                //System.exit(0); // Exit application
+            } else if (num1 <= 0) {
+                System.out.println("The amount trying to be bet is less than or equal to 0");
+                throw new NumberFormatException("");
+                
             }
 
         } catch (NumberFormatException e) { //Number format exception
@@ -1013,7 +1019,7 @@ public class BlackjackUI2 extends javax.swing.JFrame {
 
                 DisplayedPlayerCardImage3jLabel.setVisible(true);
 
-                System.out.println("JUMP HERE");
+                //System.out.println("JUMP HERE");
                 playingDeck.printDecks();
 
                 
